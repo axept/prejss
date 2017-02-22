@@ -10,6 +10,13 @@ Fast, predictable and fully customizable PostCSS to JSS "on-the-fly" adapter.
 
 Supports Server-side Rendering (SSR) and [run-time execution](https://github.com/lttb/babel-plugin-prejss).
 
+## Content
+
++ [Motivation](#Motivation)
++ [Installation](#Installation)
++ [Adapters](#Adapters)
++ [Inspiration](#Inspiration)
+
 ## Motivation
 
 This package could help you to migrate from PostCSS to JSS up to 5x time faster. Save your time. 
@@ -136,3 +143,6 @@ const styles = fromMixedCSS`
 `
 ```
 
+## Inspiration
+
++ https://github.com/styled-components/styled-components
