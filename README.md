@@ -6,7 +6,7 @@
 
 Use the best bits of [PostCSS](https://github.com/postcss/postcss) and all plugins ([one](https://github.com/postcss/postcss#plugins), [two](http://postcss.parts/), [three?](https://github.com/axept/jss-from-postcss/edit/master/README.md) 😉) to get it as [JSS styles](https://github.com/cssinjs/jss).
 
-Fast, predictable and fully customized PostCSS-to-JSS adapter which uses [Tagged Template literals](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Template_literals) (a recent addition to JavaScript/ES6).
+Fast, scoped, Component-friendly and fully customized PostCSS-to-JSS adapter which uses [Tagged Template literals](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Template_literals) (a recent addition to JavaScript/ES6).
 
 It close to "Drop-in Replacement" for your SCSS/LESS/CSS Modules/Stylus to use it as JSS  "on-the-fly".
 
@@ -110,7 +110,7 @@ document.body.innerHTML = `
   </div>
 `
 
-// Or React.js Example
+// Or React.js Simple Example
 import injectSheet from 'react-jss'
 
 const buttons = ({ button, ctaButton }) => (
@@ -161,12 +161,13 @@ const buttonStyles = styles({
 
 ## Adapters
 
-PostCSS is using under hood for pre-processing your styles to plain CSS and then parse plain CSS to make it applicable for JSS.
+PostCSS is using under hood for parsing your styles to make it applicable for JSS.
 
-But you can create any custom CSS adapter to override `prepare` and/or `parse` functions:
+But you can create a custom adapter to override `prepare` and/or `parse` functions:
 
-+ `prepare(styles: string): string` is using for converting your styles code to plain CSS
-+ `parse(CSS: string): object` is using for converting plain CSS to JSS
++ `prepare(rawStyles: string): string` is using for converting your styles code to a CSS format, like [Middleware](http://redux.js.org/docs/advanced/Middleware.html)
+
++ `parse(CSS: string): object` is using for converting your CSS format to JSS, PostCSS do it here by default
 
 Feel free to play with it:
 
@@ -174,8 +175,8 @@ Feel free to play with it:
 import fromPostCSS, { createAdapter, keyframes } from 'jss-from-postcss'
 
 const fromMixedCSS = createAdapter({
-  prepare: (styles) => {
-    const prepared = styles.replace(/^\s*\/\/.*$/gm, '') // remove JS comments
+  prepare: (rawStyles) => {
+    const prepared = rawStyles.replace(/^\s*\/\/.*$/gm, '') // remove JS comments
     return fromPostCSS(prepared)
   }
 })
