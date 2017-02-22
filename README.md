@@ -21,7 +21,7 @@ Supports Server-side Rendering (SSR) and [run-time execution](https://github.com
 
 ## Motivation
 
-This package could help you to migrate from PostCSS (or any kind of CSS) to JSS up to 5x time faster. Love your life. ❤️ Spend your time on most valuable and important things. 
+This package could help you to migrate from PostCSS and any kind of styles format to JSS up to 5x time faster. Love ❤️ your life. Spend your time on most valuable and important things. 
 
 With this package in a few minutes you can migrate to JSS from anything:
 
