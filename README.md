@@ -12,10 +12,10 @@ Supports Server-side Rendering (SSR) and [run-time execution](https://github.com
 
 ## Content
 
-+ [Motivation](#Motivation)
-+ [Installation](#Installation)
-+ [Adapters](#Adapters)
-+ [Inspiration](#Inspiration)
++ [Motivation](#motivation)
++ [Installation](#installation)
++ [Adapters](#adapters)
++ [Inspiration](#inspiration)
 
 ## Motivation
 
