@@ -10,7 +10,7 @@ Fast, predictable and fully customized PostCSS-to-JSS adapter.
 
 It close to "Drop-in Replacement" for your SCSS/LESS/CSS Modules/Stylus to use it as JSS  "on-the-fly".
 
-Supports Server-side Rendering (SSR) and run-time execution. [Fast run-time execution](https://github.com/axept/babel-plugin-jss-from-postcss).
+Supports Server-side Rendering (SSR) and run-time execution. [Fast run-time execution](https://github.com/lttb/babel-plugin-prejss).
 
 ## Content
 
