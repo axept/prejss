@@ -6,11 +6,20 @@
 
 Use the best bits of [PostCSS](https://github.com/postcss/postcss) and all plugins ([one](https://github.com/postcss/postcss#plugins), [two](http://postcss.parts/), [three?](https://github.com/axept/jss-from-postcss/edit/master/README.md) 😉) to get it as [JSS styles](https://github.com/cssinjs/jss).
 
-Fast, predictable and fully customized PostCSS-to-JSS adapter. 
+Fast, predictable and fully customized PostCSS-to-JSS adapter which uses [Tagged Template literals](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Template_literals) (a recent addition to JavaScript/ES6).
 
 It close to "Drop-in Replacement" for your SCSS/LESS/CSS Modules/Stylus to use it as JSS  "on-the-fly".
 
-Supports Server-side Rendering (SSR) and run-time execution. [Fast run-time execution](https://github.com/lttb/babel-plugin-prejss).
+Supports:
+
++ React.js for Web
++ React Native (WIP)
++ Server-side Rendering (SSR)
++ Run-time execution
++ [Fast run-time execution by pre-compilation](https://github.com/lttb/babel-plugin-prejss)
++ Theming  (WIP)
++ Linting (WIP)
++ Syntax highlighting (WIP)
 
 ## Content
 
