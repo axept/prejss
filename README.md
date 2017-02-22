@@ -89,12 +89,29 @@ const styles = fromPostCSS`
 const buttonStyles = styles({
   defaultColor: 'navy',
 })
+
+
+// Vanilla JS Example
 const { classes } = jss.createStyleSheet(buttonStyles).attach()
 
 document.body.innerHTML = `
-  <button class="${classes['button']}">Button</button>
-  <button class="${classes['ctaButton']}">CTA Button</button>
+  <div>
+    <button class="${classes.button}">Button</button>
+    <button class="${classes.ctaButton}">CTA Button</button>
+  </div>
 `
+
+// Or React.js Example
+import injectSheet from 'react-jss'
+
+const buttons = ({ button, ctaButton }) => (
+  <div>
+    <button className={button}>Button</button>
+    <button className={ctaButton}>CTA Button</button>
+  </div>
+)
+
+export default injectSheet(buttonStyles)(Button)
 ```
 
 ### Result
