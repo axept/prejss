@@ -17,6 +17,7 @@ Supports Server-side Rendering (SSR) and run-time execution. [Fast run-time exec
 + [Motivation](#motivation)
 + [Installation](#installation)
 + [Adapters](#adapters)
++ [Precompilation](#precompilation)
 + [Inspiration](#inspiration)
 
 ## Motivation
@@ -149,6 +150,13 @@ const styles = fromMixedCSS`
   }
 `
 ```
+
+
+## Precompilation
+
+It's not great idea to parse CSS in run-time on client-side. And we don't have to do it because we have great [babel-plugin-prejss](https://github.com/axept/babel-plugin-prejss) which make it possible to process your source code and transform defined styles to callbacks.
+
+[See how it works](https://github.com/lttb/babel-plugin-prejss#how-it-works)
 
 ## Inspiration
 
