@@ -15,10 +15,20 @@
     "url": "git+https://github.com/axept/jss-from-postcss.git"
   },
   "keywords": [
-    "react",
     "css",
     "css-in-js",
-    "postcss"
+    "postcss",
+    "rework",
+    "jss",
+    "styled-components",
+    "stylesheets", 
+    "jss-from-css",
+    "jss-from-postcss",
+    "scss",
+    "sass",
+    "less",
+    "stylus",
+    "sugarss"
   ],
   "author": "Axept <office@axept.co>",
   "license": "MIT",
