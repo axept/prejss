@@ -32,6 +32,10 @@ With this package in a few minutes you can migrate to JSS from anything:
 + SugarSS and so on
 
 Just use your existed styles and write all new styles in JSS. 🎁
+
+Or write styles in your favorite format and work with that like with JSS - access attributes directly, build optimized critical CSS and so on. Yep, it's like [styled-components](https://github.com/styled-components/styled-components) + JSS. See example below.
+
+
 ## Installation
 
 ```bash
