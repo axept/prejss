@@ -1,0 +1,46 @@
+{
+  "name": "jss-from-postcss",
+  "version": "0.2.0",
+  "description": "Empower your JSS styles by using the best bits of PostCSS with all plugins and ecosystem",
+  "main": "lib/index.js",
+  "scripts": {
+    "clean": "rimraf lib dist",
+    "build:lib": "babel src --out-dir lib",
+    "build": "npm run clean && npm run build:lib",
+    "prepublish": "npm run build",
+    "example": "node examples/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/axept/jss-from-postcss.git"
+  },
+  "keywords": [
+    "react",
+    "css",
+    "css-in-js",
+    "postcss"
+  ],
+  "author": "Axept <office@axept.co>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/axept/jss-from-postcss/issues"
+  },
+  "homepage": "https://github.com/axept/jss-from-postcss",
+  "dependencies": {
+    "css": "^2.2.1",
+    "postcss": "^5.2.14",
+    "postcss-nested": "^1.0.0",
+    "postcss-simple-vars": "^3.0.0",
+    "stylis": "^1.1.12"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.23.0",
+    "babel-plugin-transform-async-to-generator": "^6.22.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "babel-register": "^6.23.0",
+    "rimraf": "^2.6.0"
+  }
+}
