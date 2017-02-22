@@ -6,7 +6,9 @@
 
 Use the best bits of [PostCSS](https://github.com/postcss/postcss) and all plugins ([one](https://github.com/postcss/postcss#plugins), [two](http://postcss.parts/), [three?](https://github.com/axept/jss-from-postcss/edit/master/README.md) 😉) to get it as [JSS styles](https://github.com/cssinjs/jss).
 
-Fast, predictable and fully customizable PostCSS to JSS "on-the-fly" adapter.
+Fast, predictable and fully customized PostCSS-to-JSS adapter. 
+
+It close to "Drop-in Replacement" for your SCSS/LESS/CSS Modules/Stylus to use it as JSS  "on-the-fly".
 
 Supports Server-side Rendering (SSR) and [run-time execution](https://github.com/lttb/babel-plugin-prejss).
 
@@ -19,9 +21,9 @@ Supports Server-side Rendering (SSR) and [run-time execution](https://github.com
 
 ## Motivation
 
-This package could help you to migrate from PostCSS to JSS up to 5x time faster. Save your time. 
+This package could help you to migrate from PostCSS (or any kind of CSS) to JSS up to 5x time faster. Love your life. ❤️ Spend your time on most valuable and important things. 
 
-It means in a few minutes you can migrate to JSS from anything:
+With this package in a few minutes you can migrate to JSS from anything:
 
 + [SCSS](https://github.com/postcss/postcss-scss)
 + SASS
@@ -29,6 +31,7 @@ It means in a few minutes you can migrate to JSS from anything:
 + Stylus
 + SugarSS and so on
 
+Just use your existed styles and write all new styles in JSS. 🎁
 ## Installation
 
 ```bash
