@@ -86,14 +86,51 @@ const styles = fromPostCSS`
   }
 `
 
-const { classes } = jss.createStyleSheet(styles({
+const buttonStyles = styles({
   defaultColor: 'navy',
-}).attach()
+})
+const { classes } = jss.createStyleSheet(buttonStyles).attach()
 
 document.body.innerHTML = `
   <button class="${classes['button']}">Button</button>
   <button class="${classes['ctaButton']}">CTA Button</button>
 `
+```
+
+### Result
+
+The example above makes `styles` as a function which looks like:
+
+```javascript
+// ...
+const styles = (context) => {
+  const button = {
+    color: (context) => context.defaultColor || 'palevioletred',
+    display: 'block',
+    margin: '0.5em 0',
+    fontFamily: 'Helvetica, Arial, sans-serif',
+
+    '&:hover' {
+      textDecoration: 'underline',
+      animation: rotate360 + ' 2s linear infinite',
+    }
+  }
+  
+  const ctaButton = {
+    ...buton,
+    
+    '&:hover' {
+      background: color('blue').darken(0.3).hex(),
+    }
+  }
+  
+  return { button, ctaButton }
+}
+
+const buttonStyles = styles({
+  defaultColor: 'navy',
+})
+// ...
 ```
 
 ## Adapters
