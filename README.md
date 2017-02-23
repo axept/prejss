@@ -26,7 +26,7 @@ Supports:
 + [Motivation](#motivation)
 + [Installation](#installation)
 + [Adapters](#adapters)
-+ [Precompilation](#precompilation)
++ [Pre-compilation](#pre-compilation)
 + [Inspiration](#inspiration)
 
 ## Motivation
@@ -210,9 +210,11 @@ const styles = fromMixedCSS`
 ```
 
 
-## Precompilation
+## Pre-compilation
 
-It's not great idea to parse CSS in run-time on client-side. And you don't have to do it because there is a great [babel-plugin-prejss](https://github.com/axept/babel-plugin-prejss) which make it possible to process your source code and transform specified PostCSS styles to callback functions.
+It's not great idea to parse CSS in run-time on client-side. It's slow and expensive.
+
+Thee good news is that you don't have to do it! 🎉 There is a great [babel-plugin-prejss](https://github.com/axept/babel-plugin-prejss) plugin which transform your PostCSS styles from example above to JSS object in the processed scripts.
 
 [See how it works](https://github.com/lttb/babel-plugin-prejss#how-it-works)
 
