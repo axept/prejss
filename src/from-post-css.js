@@ -8,6 +8,8 @@
  * - https://github.com/axept/jss-from-postcss/issues/new
  */
 
+let processor = () => {}
+
 if (typeof browser !== 'undefined') {
 
   throw new Error(
@@ -17,6 +19,7 @@ if (typeof browser !== 'undefined') {
 } else {
 
   // TODO Check for React Native too?
-  exports.default = require('./processor.server')
-
+  processor = require('./processor.server').default
 }
+
+export default processor

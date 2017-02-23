@@ -1,7 +1,7 @@
 import fromPostCSS from '../src/index'
 
 const styles = fromPostCSS`
-  color: ${() => 'red'}
+  color: ${() => 'red'};
   
   .images-search-item {
 
@@ -17,4 +17,4 @@ const styles = fromPostCSS`
 }
 `
 
-console.log('Styles:', styles)
+console.log('OUTPUT:', styles)
