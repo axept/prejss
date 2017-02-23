@@ -21,7 +21,7 @@
     "rework",
     "jss",
     "styled-components",
-    "stylesheets", 
+    "stylesheets",
     "jss-from-css",
     "jss-from-postcss",
     "scss",
@@ -38,7 +38,10 @@
   "homepage": "https://github.com/axept/jss-from-postcss",
   "dependencies": {
     "css": "^2.2.1",
-    "postcss": "^5.2.14",
+    "deasync": "^0.1.9",
+    "postcss": "^5.2.15",
+    "postcss-js": "^0.3.0",
+    "postcss-load-config": "^1.2.0",
     "postcss-nested": "^1.0.0",
     "postcss-simple-vars": "^3.0.0",
     "stylis": "^1.1.12"
