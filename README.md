@@ -75,7 +75,7 @@ const rotate360 = keyframes`
 
 const styles = fromPostCSS`
   button {
-    color: ${context => context.defaultColor || 'palevioletred'};
+    color: ${() => palevioletred'};
     display: block;
     margin: 0.5em 0;
     font-family: Helvetica, Arial, sans-serif;
@@ -94,11 +94,6 @@ const styles = fromPostCSS`
     }
   }
 `
-
-const buttonStyles = styles({
-  defaultColor: 'navy',
-})
-
 
 // Vanilla JS Example
 const { classes } = jss.createStyleSheet(buttonStyles).attach()
@@ -125,13 +120,13 @@ export default injectSheet(buttonStyles)(Button)
 
 ### Result
 
-The example above makes `styles` as a function which looks like:
+The example above makes `styles` as an object which looks like:
 
 ```javascript
 // ...
-const styles = (context) => {
-  const button = {
-    color: (context) => context.defaultColor || 'palevioletred',
+const styles = {
+  button: {
+    color: () => 'palevioletred',
     display: 'block',
     margin: '0.5em 0',
     fontFamily: 'Helvetica, Arial, sans-serif',
@@ -140,23 +135,21 @@ const styles = (context) => {
       textDecoration: 'underline',
       animation: rotate360 + ' 2s linear infinite',
     }
-  }
+  },
   
-  const ctaButton = {
-    ...buton,
-    
+  ctaButton: {
+    color: () => 'palevioletred',
+    display: 'block',
+    margin: '0.5em 0',
+    fontFamily: 'Helvetica, Arial, sans-serif',
+
     '&:hover' {
+      textDecoration: 'underline',
+      animation: rotate360 + ' 2s linear infinite',
       background: color('blue').darken(0.3).hex(),
     }
   }
-  
-  return { button, ctaButton }
 }
-
-const buttonStyles = styles({
-  defaultColor: 'navy',
-})
-// ...
 ```
 
 ## Adapters
