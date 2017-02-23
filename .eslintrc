@@ -1,0 +1,32 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "env": {
+    "browser": false,
+    "node": true,
+    "mocha": true
+  },
+  "ecmaFeatures": {
+    "jsx": false,
+    "es6": true,
+    "classes": true
+  },
+  "rules": {
+    "new-cap": 0, // require constructor names to begin with a capital letter
+    "func-names": 0, // require or disallow named function expressions, named function easier to trace
+    "no-shadow": 0, // disallow variable declarations from shadowing variables declared in the outer scope
+    "comma-dangle": [1, "always-multiline"], // require trailing commas on multiline
+    "no-else-return": 0, // allow return before else statement
+    "dot-notation": [2, { // allow brake notation for external api for example
+      "allowPattern": "^([a-z,A-Z,0-9,_,-]+)$"
+    }],
+    "no-use-before-define": 0, // allow use function befor defenition
+    "no-underscore-dangle": 0, // allow use underscore in variable name
+    "array-bracket-spacing": 0, // allow add brackets spacing in array and array desctuctors
+    "arrow-parens": [2, "as-needed", { // require arrow functions bracket if more than one param (state, action) => {}
+      "requireForBlockBody": false
+    }],
+    "semi": 0, // use ASI instead of manual semicolons
+    "consistent-return": 0 // temp disable until rethink it
+  }
+}
