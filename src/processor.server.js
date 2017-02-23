@@ -26,12 +26,24 @@ const options = config.options || {}
 
 // TODO Find a way to do not use deasync for regular calls
 const processSync = deasync((raw, cb) => {
-  processor.process(raw, { parser: safeParse, ...options })
+  return processor.process(raw, { parser: safeParse, ...options })
     .then(res => cb(null, res))
     .catch(err => cb(err))
 })
 
-export default (templatedString) => {
-  const rawStyles = templatedString.join('')
+export default (chunks, ...variables) => {
+  let rawStyles
+  if (chunks.length === 1) {
+    rawStyles = chunks[0];
+  } else {
+    rawStyles = chunks.map((chunk, index) => {
+      const variable = variables[index]
+      if (typeof variable === 'string') {
+        return chunk + variable
+      } else {
+        return chunk
+      }
+    }, '').join('')
+  }
   return postcssJs.objectify(processSync(rawStyles).root)
 }

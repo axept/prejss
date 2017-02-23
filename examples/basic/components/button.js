@@ -2,8 +2,8 @@ import React from 'react'
 import injectSheet from 'react-jss'
 import fromPostCSS from '../../../src/index';
 
-const styles = fromPostCSS`
-  button {
+const styles = ({selector}) => fromPostCSS`
+  ${selector} {
     font: 400 18px/1.4 Roboto, Helvetica, Arial, sans-serif;
     display: inline-block;
     border-radius: 3px;
@@ -35,4 +35,4 @@ const Button = ({ classes, children }) => (
   </button>
 )
 
-export default injectSheet(styles)(Button)
+export default injectSheet(styles({selector: 'button'}))(Button)
