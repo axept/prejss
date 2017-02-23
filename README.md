@@ -1,10 +1,10 @@
-# jss-from-postcss
+# prejss
 
 > No black boxes anymore.
 
 > Less magic 👉 Less bugs 👉 More profit! 🚀
 
-Use the best bits of [PostCSS](https://github.com/postcss/postcss) and all plugins ([one](https://github.com/postcss/postcss#plugins), [two](http://postcss.parts/), [three?](https://github.com/axept/jss-from-postcss/edit/master/README.md) 😉) to get it as [JSS styles](https://github.com/cssinjs/jss).
+Use the best bits of [PostCSS](https://github.com/postcss/postcss) and all plugins ([one](https://github.com/postcss/postcss#plugins), [two](http://postcss.parts/), [three?](https://github.com/axept/prejss/edit/master/README.md) 😉) to get it as [JSS styles](https://github.com/cssinjs/jss).
 
 Fast, scoped, Component-friendly and fully customized PostCSS-to-JSS adapter which uses [Tagged Template literals](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Template_literals) (a recent addition to JavaScript/ES6).
 
@@ -49,7 +49,7 @@ Or write styles in your favorite format and work with that like with JSS - acces
 ## Installation
 
 ```bash
-npm install jss-from-postcss --save
+npm install prejss --save
 ```
 
 ## Example
@@ -58,7 +58,7 @@ npm install jss-from-postcss --save
 import jss from 'jss'
 import preset from 'jss-preset-default'
 import color from 'color'
-import fromPostCSS, { keyframes } from 'jss-from-postcss'
+import preJSS, { keyframes } from 'prejss'
 
 // One time setup with default plugins and settings.
 jss.setup(preset())
@@ -73,7 +73,7 @@ const rotate360 = keyframes`
   }
 `
 
-const styles = fromPostCSS`
+const styles = preJSS`
   button {
     color: ${() => 'palevioletred'};
     display: block;
@@ -165,12 +165,12 @@ But you can create a custom adapter to override `prepare` and/or `parse` functio
 Feel free to play with it:
 
 ```javascript
-import fromPostCSS, { createAdapter, keyframes } from 'jss-from-postcss'
+import preJSS, { createAdapter, keyframes } from 'prejss'
 
 const fromMixedCSS = createAdapter({
   prepare: (rawStyles) => {
     const prepared = rawStyles.replace(/^\s*\/\/.*$/gm, '') // remove JS comments
-    return fromPostCSS(prepared)
+    return preJSS(prepared)
   }
 })
 
