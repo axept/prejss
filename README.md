@@ -154,7 +154,7 @@ const styles = {
 
 ## Adapters
 
-PostCSS is using under hood for parsing your styles to make it applicable for JSS.
+Under hood PostCSS is using for parsing your styles to make it applicable for JSS.
 
 But you can create a custom adapter to override `prepare` and/or `parse` functions:
 
