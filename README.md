@@ -96,7 +96,7 @@ const styles = fromPostCSS`
 `
 
 // Vanilla JS Example
-const { classes } = jss.createStyleSheet(buttonStyles).attach()
+const { classes } = jss.createStyleSheet(styles).attach()
 
 document.body.innerHTML = `
   <div>
@@ -115,7 +115,7 @@ const buttons = ({ button, ctaButton }) => (
   </div>
 )
 
-export default injectSheet(buttonStyles)(Button)
+export default injectSheet(styles)(Button)
 ```
 
 ### Result
@@ -178,7 +178,7 @@ const rotate360 = keyframes`
   from {
     transform: rotate(0deg);
   }
-
+  
   to {
     transform: rotate(360deg);
   }
@@ -186,18 +186,19 @@ const rotate360 = keyframes`
 
 const styles = fromMixedCSS`
   button {
-    color: ${context => context.defaultColor || 'palevioletred'};
+    color: ${() => 'palevioletred'};
     display: block;
     margin: 0.5em 0;
     font-family: Helvetica, Arial, sans-serif;
     
-    // Let it snow!
+    // Let's rotate the board!
     &:hover {
       text-decoration: underline;
       animation: ${rotate360} 2s linear infinite;
     }
   }
   
+  // Special styles for Call-to-Action button
   ctaButton {
     @include button;
     
