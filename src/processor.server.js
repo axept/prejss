@@ -6,7 +6,7 @@ import postcssJs from 'postcss-js'
 import postcssrc from 'postcss-load-config'
 import deasync from 'deasync'
 
-const postcssrcSync = deasync(postcssrc())
+const postcssrcSync = deasync(cb => postcssrc().then(result => cb(result)))
 const config = postcssrcSync()
 const postcss = postcssJs.sync(config.plugins)
 
