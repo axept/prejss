@@ -19,7 +19,7 @@ const styles = ({selector}) => fromPostCSS`
     height: 50px;
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: ${() => 'red'};
     transform: translate(-50%, -50%);
   }
   label {
