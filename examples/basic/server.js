@@ -2,7 +2,6 @@ import React from 'react'
 import Express from 'express'
 import { renderToString } from 'react-dom/server'
 import { SheetsRegistryProvider, SheetsRegistry } from 'react-jss'
-import { jss } from 'react-jss'
 import App from './app'
 
 const port = process.env['PORT'] || 5000
