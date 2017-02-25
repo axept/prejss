@@ -237,7 +237,7 @@ app.use('/', () => {
   `)
 })
 
-app.listen(port, process.env['PORT'] || 3000)
+app.listen(process.env['PORT'] || 3000)
 ```
 
 ## Adapters
