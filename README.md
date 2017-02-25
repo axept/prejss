@@ -8,9 +8,11 @@ Use the best bits of [PostCSS](https://github.com/postcss/postcss) and all plugi
 
 Fast, scoped, Component-friendly and fully customized PostCSS-to-JSS adapter which uses [Tagged Template literals](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Template_literals) (a recent addition to JavaScript/ES6).
 
-Looks like "drop-in replacement" for your CSS/SCSS/LESS/CSS Modules/Stylus to use it as JSS  "on-the-fly".
+Looks like "drop-in replacement" for styles in CSS/SCSS/LESS/CSS Modules/Stylus to use it as JSS  "on-the-fly".
 
-The shortest way to get high-optimized Critical CSS for isomorphic applications. Fits good for Single Page Applications. Improves productivity and reduces cognitive loading.
+The shortest way to get high-optimized Critical CSS for isomorphic applications, but fits good for Single Page Applications.
+
+Improves productivity and reduces cognitive loading.
 
 Supports:
 
@@ -36,9 +38,11 @@ Supports:
 
 ## Motivation
 
-Our first goal was to migrate from SCSS to JSS. Lately we've found that sometimes it's just a very nice to define JSS styles in the format which we already used to:
+Our first goal was to migrate from [SCSS](http://sass-lang.com/guide) to [JSS](https://github.com/cssinjs/jss).
 
-This package allows you to use with JSS any of your existed styles in any format:
+Lately we've found that sometimes it's just a very nice to define JSS styles in the format which we already used to.
+
+This package allows you to use with JSS any of your existed styles:
 
 + plain CSS
 + [SCSS](https://github.com/postcss/postcss-scss)
@@ -47,11 +51,11 @@ This package allows you to use with JSS any of your existed styles in any format
 + Stylus
 + SugarSS and so on
 
-Also it could help your to migrate "smoothly" from any format above to JSS.
+It could help your to migrate "smoothly" from any format above to JSS.
 
 Since we used [PostCSS] under hood - you can use any of PostCSS plugin.
 
-Also we [extend](#example) your CSS by allowing you to use JavaScript code in your styles.
+Also we [extended](#example) your CSS by allowing you to use JavaScript code in your styles. Just because it's a JSS way.
 
 Think about it like [PostCSS](https://github.com/postcss/postcss) + [Template Strings](https://developers.google.com/web/updates/2015/01/ES6-Template-Strings) + [JSS](https://github.com/jsstyles/jss) + ❤️ = **jss-from-postcss**. See example below.
 
