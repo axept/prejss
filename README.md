@@ -137,6 +137,15 @@ const styles = {
       animation: rotate360 + ' 2s linear infinite',
       background: color('blue').darken(0.3).hex(),
     }
+  },
+  
+  '@global': {
+    body: {
+      color: '#ccc',
+    },
+    button: {
+      color: '#888888',
+    },
   }
 }
 ```
