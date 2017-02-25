@@ -10,7 +10,7 @@ Fast, scoped, Component-friendly and fully customized PostCSS-to-JSS adapter whi
 
 Looks like "drop-in replacement" for your CSS/SCSS/LESS/CSS Modules/Stylus to use it as JSS  "on-the-fly".
 
-The shortest way to get high-optimized Critical CSS.
+The shortest way to get high-optimized Critical CSS for isomorphic applications. Fits good for Single Page Applications. Improves productivity and reduces cognitive loading.
 
 Supports:
 
