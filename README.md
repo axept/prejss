@@ -74,6 +74,8 @@ const rotate360 = keyframes`
 `
 
 const styles = fromPostCSS`
+  $bg-default: #ccc;
+  
   button {
     color: ${() => 'palevioletred'};
     display: block;
@@ -93,9 +95,22 @@ const styles = fromPostCSS`
       background: ${color('blue').darken(0.3).hex()}
     }
   }
+  
+  @global {
+    body {
+      color: $bg-default;
+    }
+    button {
+      color: #888888;
+    }
+  }
 `
+```
 
-// Vanilla JS Example
+### Render with Vanilla JS
+
+```javascript
+import styles from './styles'
 const { classes } = jss.createStyleSheet(styles).attach()
 
 document.body.innerHTML = `
@@ -104,9 +119,13 @@ document.body.innerHTML = `
     <button class="${classes.ctaButton}">CTA Button</button>
   </div>
 `
+```
 
-// Or React.js Simple Example
+### Render with React.js
+
+```javascript
 import injectSheet from 'react-jss'
+import styles from './styles'
 
 const buttons = ({ button, ctaButton }) => (
   <div>
