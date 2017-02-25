@@ -1,6 +1,6 @@
 {
   "name": "jss-from-postcss",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Empower your JSS styles by using the best bits of PostCSS with all plugins and ecosystem",
   "main": "lib/index.js",
   "scripts": {
