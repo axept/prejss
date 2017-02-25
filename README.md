@@ -196,6 +196,7 @@ But you can create a custom adapter to override `prepare` and/or `parse` functio
 + `prepare(rawStyles: string): string` is using for converting your styles code to a CSS format, like [Middleware](http://redux.js.org/docs/advanced/Middleware.html)
 
 + `parse(CSS: string): object` is using for converting your CSS format to JSS, PostCSS do it here by default
++ `finalize(result: object): object` is using for post-processing your final object
 
 Feel free to play with it:
 
@@ -219,9 +220,9 @@ const rotate360 = keyframes`
   }
 `
 
-const styles = fromMixedCSS`
+const getStyles = ({ color, animationSpeed }) => fromMixedCSS`
   button {
-    color: ${() => 'palevioletred'};
+    color: ${() => color || 'palevioletred'};
     display: block;
     margin: 0.5em 0;
     font-family: Helvetica, Arial, sans-serif;
@@ -229,7 +230,7 @@ const styles = fromMixedCSS`
     // Let's rotate the board!
     &:hover {
       text-decoration: underline;
-      animation: ${rotate360} 2s linear infinite;
+      animation: ${rotate360} ${animationSpeed || '2s'} linear infinite;
     }
   }
   
@@ -243,7 +244,6 @@ const styles = fromMixedCSS`
   }
 `
 ```
-
 
 ## Pre-compilation
 
