@@ -25,6 +25,7 @@ Supports:
 
 + [Motivation](#motivation)
 + [Installation](#installation)
++ [Example](#example)
 + [Adapters](#adapters)
 + [Pre-compilation](#pre-compilation)
 + [Inspiration](#inspiration)
