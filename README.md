@@ -15,14 +15,14 @@ The shortest way to get high-optimized Critical CSS.
 Supports:
 
 + [React.js for Web](#example)
-+ React Native (WIP)
++ React Native ([WIP](https://github.com/axept/jss-from-postcss/issues/9))
 + [Server-side Rendering (SSR)](#server-side-rendering)
 + [Disabled JavaScript on Client-side](#server-side-rendering)
 + [Run-time execution](#example)
 + [Fast run-time execution by pre-compilation](#precompilation)
-+ Theming  (WIP)
-+ Linting (WIP)
-+ Syntax highlighting (WIP)
++ [Themes] ([WIP](https://github.com/axept/jss-from-postcss/issues/10))
++ [Linting] ([WIP](https://github.com/axept/jss-from-postcss/issues/11))
++ Syntax highlighting ([WIP](https://github.com/axept/jss-from-postcss/issues/12))
 
 ## Content
 
