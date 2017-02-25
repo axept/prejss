@@ -12,11 +12,11 @@ It close to "Drop-in Replacement" for your SCSS/LESS/CSS Modules/Stylus to use i
 
 Supports:
 
-+ React.js for Web
++ [React.js for Web](#example)
 + React Native (WIP)
-+ Server-side Rendering (SSR)
++ [Server-side Rendering (SSR)](#server-side-rendering)
 + Run-time execution
-+ [Fast run-time execution by pre-compilation](https://github.com/lttb/babel-plugin-prejss)
++ [Fast run-time execution by pre-compilation](#precompilation)
 + Theming  (WIP)
 + Linting (WIP)
 + Syntax highlighting (WIP)
@@ -177,14 +177,59 @@ import styles from './styles'
 // One time setup with default plugins and settings.
 jss.setup(preset())
 
-const buttons = ({ button, ctaButton }) => (
+const Buttons = ({ button, ctaButton }) => (
   <div>
     <button className={button}>Button</button>
     <button className={ctaButton}>CTA Button</button>
   </div>
 )
 
-export default injectSheet(styles)(Button)
+export default injectSheet(styles)(Buttons)
+```
+
+### Server-Side Rendering
+
+As you well know React.js and JSS both support Server-Side Rendering (SSR).
+
+You can use it with `jss-from-postcss` without any limitations:
+
+```javascript
+import express from 'express'
+import jss from 'jss'
+import preset from 'jss-preset-default'
+import React from 'react'
+import { renderToString } from 'react-dom/server'
+import { SheetsRegistryProvider, SheetsRegistry } from 'react-jss'
+// this module is defined in the previous example
+import Buttons from './buttons' 
+
+// One time setup with default plugins and settings.
+jss.setup(preset())
+const app = express()
+
+app.use('/', () => {
+  const sheets = new SheetsRegistry()
+  const content = renderToString(
+    <SheetsRegistryProvider registry={sheets}>
+      <Buttons />
+    </SheetsRegistryProvider>
+  )
+  const criticalCSS = sheets.toString()
+  res.send(`
+    <html>
+    <head>
+      <style id="critical-css" type="text/css">
+      ${criticalCSS}
+      </style>
+    </head>
+    <body>
+      ${content}
+    </body>
+    </html>
+  `)
+})
+
+app.listen(port, process.env['PORT'] || 3000)
 ```
 
 ## Adapters
