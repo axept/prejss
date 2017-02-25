@@ -8,13 +8,16 @@ Use the best bits of [PostCSS](https://github.com/postcss/postcss) and all plugi
 
 Fast, scoped, Component-friendly and fully customized PostCSS-to-JSS adapter which uses [Tagged Template literals](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Template_literals) (a recent addition to JavaScript/ES6).
 
-It close to "Drop-in Replacement" for your SCSS/LESS/CSS Modules/Stylus to use it as JSS  "on-the-fly".
+Looks like "drop-in replacement" for your CSS/SCSS/LESS/CSS Modules/Stylus to use it as JSS  "on-the-fly".
+
+The shortest way to get high-optimized Critical CSS.
 
 Supports:
 
 + [React.js for Web](#example)
 + React Native (WIP)
 + [Server-side Rendering (SSR)](#server-side-rendering)
++ [Disabled JavaScript on Client-side](#server-side-rendering)
 + [Run-time execution](#example)
 + [Fast run-time execution by pre-compilation](#precompilation)
 + Theming  (WIP)
@@ -32,19 +35,24 @@ Supports:
 
 ## Motivation
 
-This package could help you to migrate from PostCSS and any kind of styles format to JSS up to 5x time faster. Love ❤️ your life. Spend your time on most valuable and important things. 
+Our first goal was to migrate from SCSS to JSS. Lately we've found that sometimes it's just a very nice to define JSS styles in the format which we already used to (like [styled-components](https://github.com/styled-components/styled-components)).
 
-With this package in a few minutes you can migrate to JSS from anything:
+This package allows you to use with JSS any of your existed styles in any format:
 
++ plain CSS
 + [SCSS](https://github.com/postcss/postcss-scss)
 + SASS
 + LESS
 + Stylus
 + SugarSS and so on
 
-Just use your existed styles and write all new styles in JSS. 🎁
+Also it could help your to migrate "smoothly" from any format above to JSS.
 
-Or write styles in your favorite format and work with that like with JSS - access attributes directly, build optimized critical CSS and so on. Yep, it's like [styled-components](https://github.com/styled-components/styled-components) + JSS. See example below.
+Since we used [PostCSS] under hood - you can use any of PostCSS plugin.
+
+Also we [extend](#example) your CSS by allowing you to use JavaScript code in your styles.
+
+Think about it like [styled-components](https://github.com/styled-components/styled-components) = [JSS](https://github.com/jsstyles/jss) + `jss-from-postcss`. See example below.
 
 
 ## Installation
