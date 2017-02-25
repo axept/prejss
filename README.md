@@ -20,6 +20,7 @@ Supports:
 + [Disabled JavaScript on Client-side](#server-side-rendering)
 + [Run-time execution](#example)
 + [Fast run-time execution by pre-compilation](#precompilation)
++ Hot Module Replacement ([WIP](https://github.com/axept/jss-from-postcss/issues/6))
 + Themes ([WIP](https://github.com/axept/jss-from-postcss/issues/10))
 + Linting ([WIP](https://github.com/axept/jss-from-postcss/issues/11))
 + Syntax highlighting ([WIP](https://github.com/axept/jss-from-postcss/issues/12))
