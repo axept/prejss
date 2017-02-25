@@ -105,6 +105,12 @@ const styles = fromPostCSS`
     }
   }
   
+  @media (min-width: 1024px) {
+    button {
+      width: 200px;
+    }
+  }
+  
   @global {
     body {
       color: $bg-default;
@@ -146,6 +152,12 @@ const styles = {
       animation: rotate360 + ' 2s linear infinite',
       background: color('blue').darken(0.3).hex(),
     }
+  },
+  
+  '@media (min-width: 1024px)': {
+    button: {
+      width: 200,
+    },
   },
   
   '@global': {
