@@ -53,7 +53,7 @@ This package allows you to use with JSS any of your existed styles:
 
 It could help your to migrate "smoothly" from any format above to JSS.
 
-Since we used [PostCSS] under hood - you can use any of PostCSS plugin.
+Since we used [PostCSS] under hood - you can use any of PostCSS plugis like [autoprefixer](https://github.com/postcss/autoprefixer) and so on.
 
 Also we [extended](#example) your CSS by allowing you to use JavaScript code in your styles. Just because it's a JSS way.
 
