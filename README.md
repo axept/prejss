@@ -220,8 +220,8 @@ const rotate360 = keyframes`
   }
 `
 
-const getStyles = ({ color, animationSpeed }) => fromMixedCSS`
-  button {
+const getStyles = ({ color, animationSpeed, className }) => fromMixedCSS`
+  ${'button' + (className ? '.' + className : '')}
     color: ${() => color || 'palevioletred'};
     display: block;
     margin: 0.5em 0;
