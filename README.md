@@ -113,7 +113,7 @@ const styles = fromPostCSS`
 
 ### Result
 
-The example above makes `styles` as an object which looks like:
+The example above transform `styles` to the following object:
 
 ```javascript
 // ...
