@@ -56,13 +56,8 @@ npm install jss-from-postcss --save
 ## Example
 
 ```javascript
-import jss from 'jss'
-import preset from 'jss-preset-default'
 import color from 'color'
 import fromPostCSS, { keyframes } from 'jss-from-postcss'
-
-// One time setup with default plugins and settings.
-jss.setup(preset())
 
 const rotate360 = keyframes`
   from {
@@ -154,7 +149,13 @@ const styles = {
 ### Render with Vanilla JS
 
 ```javascript
+import jss from 'jss'
+import preset from 'jss-preset-default'
 import styles from './styles'
+
+// One time setup with default plugins and settings.
+jss.setup(preset())
+
 const { classes } = jss.createStyleSheet(styles).attach()
 
 document.body.innerHTML = `
@@ -168,8 +169,13 @@ document.body.innerHTML = `
 ### Render with React.js
 
 ```javascript
+import jss from 'jss'
+import preset from 'jss-preset-default'
 import injectSheet from 'react-jss'
 import styles from './styles'
+
+// One time setup with default plugins and settings.
+jss.setup(preset())
 
 const buttons = ({ button, ctaButton }) => (
   <div>
