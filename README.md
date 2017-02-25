@@ -53,7 +53,7 @@ Since we used [PostCSS] under hood - you can use any of PostCSS plugin.
 
 Also we [extend](#example) your CSS by allowing you to use JavaScript code in your styles.
 
-Think about it like [PostCSS](https://github.com/postcss/postcss) + [styled-components](https://github.com/styled-components/styled-components) + [JSS](https://github.com/jsstyles/jss) + ❤️ = **jss-from-postcss**. See example below.
+Think about it like [PostCSS](https://github.com/postcss/postcss) + [Template Strings](https://developers.google.com/web/updates/2015/01/ES6-Template-Strings) + [JSS](https://github.com/jsstyles/jss) + ❤️ = **jss-from-postcss**. See example below.
 
 
 ## Installation
