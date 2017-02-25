@@ -36,7 +36,7 @@ Supports:
 
 ## Motivation
 
-Our first goal was to migrate from SCSS to JSS. Lately we've found that sometimes it's just a very nice to define JSS styles in the format which we already used to (like [styled-components](https://github.com/styled-components/styled-components)).
+Our first goal was to migrate from SCSS to JSS. Lately we've found that sometimes it's just a very nice to define JSS styles in the format which we already used to:
 
 This package allows you to use with JSS any of your existed styles in any format:
 
@@ -53,7 +53,7 @@ Since we used [PostCSS] under hood - you can use any of PostCSS plugin.
 
 Also we [extend](#example) your CSS by allowing you to use JavaScript code in your styles.
 
-Think about it like [styled-components](https://github.com/styled-components/styled-components) = [JSS](https://github.com/jsstyles/jss) + `jss-from-postcss`. See example below.
+Think about it like [PostCSS](https://github.com/postcss/postcss) + [styled-components](https://github.com/styled-components/styled-components) + [JSS](https://github.com/jsstyles/jss) + ❤️ = **jss-from-postcss**. See example below.
 
 
 ## Installation
