@@ -15,7 +15,7 @@ Supports:
 + [React.js for Web](#example)
 + React Native (WIP)
 + [Server-side Rendering (SSR)](#server-side-rendering)
-+ Run-time execution
++ [Run-time execution](#example)
 + [Fast run-time execution by pre-compilation](#precompilation)
 + Theming  (WIP)
 + Linting (WIP)
@@ -27,7 +27,7 @@ Supports:
 + [Installation](#installation)
 + [Example](#example)
 + [Adapters](#adapters)
-+ [Pre-compilation](#pre-compilation)
++ [Precompilation](#precompilation)
 + [Inspiration](#inspiration)
 
 ## Motivation
@@ -290,7 +290,7 @@ const getStyles = ({ color, animationSpeed, className }) => fromMixedCSS`
 `
 ```
 
-## Pre-compilation
+## Precompilation
 
 It's not great idea to parse CSS in run-time on client-side. It's slow and expensive.
 
