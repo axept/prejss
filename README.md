@@ -247,6 +247,28 @@ Thee good news is that you don't have to do it! 🎉 There is a great [babel-plu
 
 [See how it works](https://github.com/lttb/babel-plugin-prejss#how-it-works)
 
+Step-by-Step manual:
+
+1. Add `babel-plugin-prejss` to your project:
+
+   ```bash
+   npm install babel-plugin-prejss -D
+   ```
+
+2. Configure it by updating `.babelrc` in your project directory:
+
+   ```
+   plugins: [
+     [
+       'prejss', {
+         'namespace': 'fromPostCSS'
+       }
+     ]
+   ]
+   ```
+   
+3. Build your project! In your JavaScript bundles you will have replaced `fromPostCSS` constraints by JSS objects directly. Babel do it for you. Not a magic - just a next generation JavaScript today. 😉
+
 ## Inspiration
 
 + https://github.com/styled-components/styled-components
