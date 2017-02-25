@@ -107,36 +107,6 @@ const styles = fromPostCSS`
 `
 ```
 
-### Render with Vanilla JS
-
-```javascript
-import styles from './styles'
-const { classes } = jss.createStyleSheet(styles).attach()
-
-document.body.innerHTML = `
-  <div>
-    <button class="${classes.button}">Button</button>
-    <button class="${classes.ctaButton}">CTA Button</button>
-  </div>
-`
-```
-
-### Render with React.js
-
-```javascript
-import injectSheet from 'react-jss'
-import styles from './styles'
-
-const buttons = ({ button, ctaButton }) => (
-  <div>
-    <button className={button}>Button</button>
-    <button className={ctaButton}>CTA Button</button>
-  </div>
-)
-
-export default injectSheet(styles)(Button)
-```
-
 ### Result
 
 The example above makes `styles` as an object which looks like:
@@ -169,6 +139,36 @@ const styles = {
     }
   }
 }
+```
+
+### Render with Vanilla JS
+
+```javascript
+import styles from './styles'
+const { classes } = jss.createStyleSheet(styles).attach()
+
+document.body.innerHTML = `
+  <div>
+    <button class="${classes.button}">Button</button>
+    <button class="${classes.ctaButton}">CTA Button</button>
+  </div>
+`
+```
+
+### Render with React.js
+
+```javascript
+import injectSheet from 'react-jss'
+import styles from './styles'
+
+const buttons = ({ button, ctaButton }) => (
+  <div>
+    <button className={button}>Button</button>
+    <button className={ctaButton}>CTA Button</button>
+  </div>
+)
+
+export default injectSheet(styles)(Button)
 ```
 
 ## Adapters
