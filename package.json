@@ -1,7 +1,7 @@
 {
   "name": "prejss",
-  "version": "1.0.3",
-  "description": "Empower your JSS styles by using the best bits of PostCSS with all plugins",
+  "version": "1.0.4",
+  "description": "Get the power of PostCSS with plugins in your JSS styles. 🎨 Just put CSS into JS and get it as JSS object.",
   "main": "lib/index.js",
   "scripts": {
     "clean": "rimraf lib dist",
