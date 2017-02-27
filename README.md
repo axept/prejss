@@ -83,7 +83,7 @@ const styles = preJSS`
   $bg-default: #ccc;
   
   button {
-    color: ${() => 'palevioletred'};
+    color: ${(props) => props.isPrimary ? 'palevioletred' : 'green'};
     display: block;
     margin: 0.5em 0;
     font-family: Helvetica, Arial, sans-serif;
