@@ -24,6 +24,8 @@ Supports:
 + [Linting](#linting)
 + Syntax Highlighting ([WIP](https://github.com/axept/prejss/issues/12))
 
+![Diagram](https://raw.githubusercontent.com/axept/prejss/master/docs/prejss-schema.png)
+
 ## Content
 
 + [Motivation](#motivation)
