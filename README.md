@@ -83,7 +83,7 @@ const styles = preJSS`
   $bg-default: #ccc;
   
   button {
-    color: ${(props) => props.isPrimary ? 'palevioletred' : 'green'};
+    color: ${props => props.isPrimary ? 'palevioletred' : 'green'};
     display: block;
     margin: 0.5em 0;
     font-family: Helvetica, Arial, sans-serif;
@@ -137,7 +137,7 @@ The example above transform `styles` to the following object:
 // ...
 const styles = {
   button: {
-    color: () => 'palevioletred',
+    color: props => props.isPrimary ? 'palevioletred' : 'green',
     display: 'block',
     margin: '0.5em 0',
     fontFamily: 'Helvetica, Arial, sans-serif',
