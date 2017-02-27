@@ -37,26 +37,34 @@ Supports:
 
 ## Motivation
 
-One of most popular tasks which is solving by PreJSS is migration from [SCSS](http://sass-lang.com/guide) to [JSS](https://github.com/cssinjs/jss). Originally it was [implemented](https://github.com/axept/jss-from-css) to solve exactly this task.
+CSS is good enough solution when you develop web-sites and simple UIs.
 
-Lately we've found that it could be just very nice to define JSS styles in the format which we already used to.
+But when you develop Web Applications and complex UIs, CSS is something like legacy.
 
-So by default this package allows you to use PostCSS features and plugins. Those plugins allow you to use:
+More than one year we use React Native where is [styles are defining by JavaScript objects](https://facebook.github.io/react-native/docs/style.html).
+
+How to migrate from CSS/SCSS to JSS "smoothly and on-time"?
+
+At first we developed [jss-from-css](https://github.com/axept/jss-from-css) for process SCSS-to-JSS migration in cheapest and fastest way.
+
+Lately we have found that it could be just very nice to define JSS styles in [the format which we already used to](#example) and even extend it to use some JavaScript injections and so on. We introduced [Adapters](#adapters) which provides mechanism to use this package also with any CSS-in-JS library.
+
+So out-of-the-box PreJSS allows you to use PostCSS features and plugins which enable you to use:
 
 + plain CSS
 + [SCSS](https://github.com/postcss/postcss-scss)
 + SASS
 + LESS
 + Stylus
-+ SugarSS and so on
++ SugarSS 
 
 It could help your to migrate "smoothly" from any format above to JSS. That's how we solved this issue.
 
 You can use any of PostCSS plugins like [Autoprefixer](https://github.com/postcss/autoprefixer), [postcss-next](http://cssnext.io/) and so on.
 
-Also we [extended](#example) your CSS by allowing you to use JavaScript code in your styles. Just because it's a JSS way.
+Finally, think about it like:
 
-Think about it like [PostCSS](https://github.com/postcss/postcss) + [Template Strings](https://developers.google.com/web/updates/2015/01/ES6-Template-Strings) + [JSS](https://github.com/jsstyles/jss) + ❤️ = **PreJSS**. See example below.
++ [PostCSS](https://github.com/postcss/postcss) + [Template Strings](https://developers.google.com/web/updates/2015/01/ES6-Template-Strings) + [JSS](https://github.com/jsstyles/jss) + ❤️ = **PreJSS**
 
 
 ## Installation
@@ -69,17 +77,7 @@ npm install prejss --save
 
 ```javascript
 import color from 'color'
-import preJSS, { keyframes } from 'prejss'
-
-const rotate360 = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-`
+import preJSS from 'prejss'
 
 const styles = preJSS`
   $bg-default: #ccc;
@@ -109,7 +107,17 @@ const styles = preJSS`
       width: 200px;
     }
   }
-  
+
+  @keyframes rotate360 {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
   @global {
     body {
       color: $bg-default;
@@ -136,7 +144,7 @@ const styles = {
 
     '&:hover' {
       textDecoration: 'underline',
-      animation: rotate360 + ' 2s linear infinite',
+      animation: rotate360 + ' 2s linear infinite'
     }
   },
   
@@ -149,23 +157,32 @@ const styles = {
     '&:hover' {
       textDecoration: 'underline',
       animation: rotate360 + ' 2s linear infinite',
-      background: color('blue').darken(0.3).hex(),
+      background: color('blue').darken(0.3).hex()
     }
   },
   
   '@media (min-width: 1024px)': {
     button: {
       width: 200,
+    }
+  },
+
+  '@keyframes rotate360': {
+    from: {
+      transform: 'rotate(0deg)'
     },
+    to: {
+      transform: 'rotate(360deg)'
+    }
   },
   
   '@global': {
     body: {
-      color: '#ccc',
+      color: '#ccc'
     },
     button: {
-      color: '#888888',
-    },
+      color: '#888888'
+    }
   }
 }
 ```
