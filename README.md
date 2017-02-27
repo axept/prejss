@@ -31,6 +31,7 @@ Supports:
 + [Example](#example)
 + [Adapters](#adapters)
 + [Precompilation](#precompilation)
++ [Ecosystem](#ecosystem)
 + [Inspiration](#inspiration)
 + [Thanks](#thanks)
 
@@ -392,6 +393,11 @@ Since we use PostCSS as default adapter - you can use [stylelint](https://github
 So it works with using [PostJSS](https://github.com/lttb/postjss#linting) like a charm:
 
 ![Demo](https://cloud.githubusercontent.com/assets/11135392/23332827/1d705f20-fb91-11e6-8b13-146a65cf3ed5.gif)
+
+## Ecosystem
+
++ [babel-plugin-prejss](https://github.com/lttb/babel-plugin-prejss) - plugin for Babel for pre-compiliation PreJSS constraints to JSS Objects
++ [postjss](https://github.com/lttb/postjss) - loader for webpack to put Hot Module Replacement feature to your work process
 
 ## Inspiration
 
