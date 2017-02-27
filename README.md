@@ -1,4 +1,4 @@
-# PreJSS
+# PreJSS 🎨
 
 Use the best bits of [PostCSS](https://github.com/postcss/postcss), syntax and plugins ([one](https://github.com/postcss/postcss#plugins), [two](http://postcss.parts/), [three?](https://github.com/axept/prejss/edit/master/README.md) 😉) to get that all as [JSS](https://github.com/cssinjs/jss) objects from [Tagged Template literals](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Template_literals) (a recent addition to JavaScript/ES6).
 
@@ -8,16 +8,16 @@ Fast, scoped, component-friendly and fully customizable PostCSS-to-JSS adapter.
 
 PreJSS allows you to use PostCSS, plain CSS, SCSS, CSS Modules, Stylus and LESS styles as JSS objects just "on-the-fly".
 
-Beside of that, PreJSS is the shortest way to get high-optimized [Critical CSS](https://www.smashingmagazine.com/2015/08/understanding-critical-css/) for [Isomorphic Applications](https://www.slideshare.net/denisizmaylov/performance-and-scalability-art-of-isomorphic-react-applications). It still fits good for Single Page Applications.
+Beside of that, PreJSS is the shortest way to get high-optimized [Critical CSS](https://www.smashingmagazine.com/2015/08/understanding-critical-css/) for [Isomorphic Applications](https://www.slideshare.net/denisizmaylov/performance-and-scalability-art-of-isomorphic-react-applications) while it still fits good for Single Page Applications.
 
-If you are new to JSS - it could improve your productivity and reduce cognitive loading by allowing you to use CSS and [JSS notation](https://top.fse.guru/jss-is-css-d7d41400b635#.72jbezmkj) together according to your choice at each point in source code.
+Are you new to JSS? It will save your time, improve your productivity and reduce cognitive loading by allowing you to use CSS and [JSS notation](https://top.fse.guru/jss-is-css-d7d41400b635#.72jbezmkj) together. It means sometimes you can write CSS, sometimes - JSS. That all according to your choice.
 
 Supports:
 
 + [React.js for Web](#example)
 + React Native ([WIP](https://github.com/axept/prejss/issues/9))
-+ [Vanilla JS and any Template Engine](#render-with-vanilla-js)
-+ [Server-side Rendering (SSR)](#server-side-rendering)
++ [Vanilla JS and any kind of Template Engines](#render-with-vanilla-js)
++ [SSR (Server-side Rendering)](#server-side-rendering)
 + [Disabled JavaScript in Web Browser](#disabled-javascript-in-web-browser)
 + [Fast Run-time execution by Babel plugin](#precompilation)
 + [Hot Module Replacement with webpack](#hot-module-replacement-with-webpack)
@@ -359,7 +359,7 @@ Step-by-Step manual:
    
 3. Build your project! In your JavaScript bundles you will have replaced `preJSS` constraints by JSS objects directly. Babel do it for you. Not a magic - just a next generation JavaScript today. 😉
 
-## How Module Replacement with webpack
+## Hot Module Replacement with webpack
 
 You can get Hot Module Replacement by using webpack and PostJSS loader to get real-time updates while you work with the project.
 
