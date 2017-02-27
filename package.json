@@ -1,6 +1,6 @@
 {
   "name": "prejss",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Empower your JSS styles by using the best bits of PostCSS with all plugins",
   "main": "lib/index.js",
   "scripts": {
