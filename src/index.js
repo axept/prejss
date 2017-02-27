@@ -1,3 +1,4 @@
-import fromPostCSS from './from-post-css'
+import createAdapter from './create-adapter'
+import defaultAdapter from './default-adapter'
 
-export default fromPostCSS
+export default createAdapter(defaultAdapter)

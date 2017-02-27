@@ -7,7 +7,7 @@ import safeParse from 'postcss-safe-parser'
 import postcssJs from 'postcss-js'
 import postcssrc from 'postcss-load-config'
 import deasync from 'deasync'
-import guid from './utils/guid'
+import guid from '../utils/guid'
 
 const postcssrcSync = deasync(cb => {
   postcssrc()
