@@ -1,7 +1,7 @@
 {
-  "name": "jss-from-postcss",
+  "name": "prejss",
   "version": "0.3.3",
-  "description": "Empower your JSS styles by using the best bits of PostCSS with all plugins and ecosystem",
+  "description": "Empower your JSS styles by using the best bits of PostCSS with all plugins",
   "main": "lib/index.js",
   "scripts": {
     "clean": "rimraf lib dist",
@@ -14,12 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/axept/jss-from-postcss.git"
+    "url": "git+https://github.com/axept/prejss.git"
   },
   "keywords": [
     "css",
     "css-in-js",
+    "prejss",
     "postcss",
+    "postjss",
     "rework",
     "jss",
     "styled-components",
@@ -35,9 +37,9 @@
   "author": "Axept <office@axept.co>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/axept/jss-from-postcss/issues"
+    "url": "https://github.com/axept/prejss/issues"
   },
-  "homepage": "https://github.com/axept/jss-from-postcss",
+  "homepage": "https://github.com/axept/prejss",
   "dependencies": {
     "css": "^2.2.1",
     "deasync": "^0.1.9",

@@ -1,31 +1,28 @@
-# jss-from-postcss
+# PreJSS
 
-> No black boxes anymore.
+Use the best bits of [PostCSS](https://github.com/postcss/postcss), syntax and plugins ([one](https://github.com/postcss/postcss#plugins), [two](http://postcss.parts/), [three?](https://github.com/axept/prejss/edit/master/README.md) 😉) to get that all as [JSS](https://github.com/cssinjs/jss) objects from [Tagged Template literals](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Template_literals) (a recent addition to JavaScript/ES6).
 
-> Less magic 👉 Less bugs 👉 More profit! 🚀
+> PostCSS is a tool for transforming styles with JS plugins. These plugins can lint your CSS, support variables and mixins, transpile future CSS syntax, inline images, and more.
 
-Use the best bits of [PostCSS](https://github.com/postcss/postcss) and all plugins ([one](https://github.com/postcss/postcss#plugins), [two](http://postcss.parts/), [three?](https://github.com/axept/jss-from-postcss/edit/master/README.md) 😉) to get it as [JSS styles](https://github.com/cssinjs/jss).
+Fast, scoped, component-friendly and fully customizable PostCSS-to-JSS adapter.
 
-Fast, scoped, Component-friendly and fully customized PostCSS-to-JSS adapter which uses [Tagged Template literals](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Template_literals) (a recent addition to JavaScript/ES6).
+PreJSS allows you to use PostCSS, plain CSS, SCSS, CSS Modules, Stylus and LESS styles as JSS objects just "on-the-fly".
 
-Looks like "drop-in replacement" for styles in CSS/SCSS/LESS/CSS Modules/Stylus to use it as JSS  "on-the-fly".
+Beside of that, PreJSS is the shortest way to get high-optimized [Critical CSS](https://www.smashingmagazine.com/2015/08/understanding-critical-css/) for [Isomorphic Applications](https://www.slideshare.net/denisizmaylov/performance-and-scalability-art-of-isomorphic-react-applications). It still fits good for Single Page Applications.
 
-The shortest way to get high-optimized Critical CSS for isomorphic applications, but fits good for Single Page Applications.
-
-Improves productivity and reduces cognitive loading.
+If you are new to JSS - it could improve your productivity and reduce cognitive loading by allowing you to use CSS and [JSS notation](https://top.fse.guru/jss-is-css-d7d41400b635#.72jbezmkj) together according to your choice at each point in source code.
 
 Supports:
 
 + [React.js for Web](#example)
-+ React Native ([WIP](https://github.com/axept/jss-from-postcss/issues/9))
++ React Native ([WIP](https://github.com/axept/prejss/issues/9))
++ [Vanilla JS and any Template Engine](#render-with-vanilla-js)
 + [Server-side Rendering (SSR)](#server-side-rendering)
-+ [Disabled JavaScript on Client-side](#server-side-rendering)
-+ [Run-time execution](#example)
-+ [Fast run-time execution by pre-compilation](#precompilation)
-+ Hot Module Replacement ([WIP](https://github.com/axept/jss-from-postcss/issues/6))
-+ Themes ([WIP](https://github.com/axept/jss-from-postcss/issues/10))
-+ Linting ([WIP](https://github.com/axept/jss-from-postcss/issues/11))
-+ Syntax highlighting ([WIP](https://github.com/axept/jss-from-postcss/issues/12))
++ [Disabled JavaScript in Web Browser](#disabled-javascript-in-web-browser)
++ [Fast Run-time execution by Babel plugin](#precompilation)
++ [Hot Module Replacement with webpack](#hot-module-replacement-with-webpack)
++ [Linting](#linting)
++ Syntax Highlighting ([WIP](https://github.com/axept/prejss/issues/12))
 
 ## Content
 
@@ -35,14 +32,15 @@ Supports:
 + [Adapters](#adapters)
 + [Precompilation](#precompilation)
 + [Inspiration](#inspiration)
++ [Thanks](#thanks)
 
 ## Motivation
 
-Our first goal was to migrate from [SCSS](http://sass-lang.com/guide) to [JSS](https://github.com/cssinjs/jss).
+One of most popular tasks which is solving by PreJSS is migration from [SCSS](http://sass-lang.com/guide) to [JSS](https://github.com/cssinjs/jss). Originally it was [implemented](https://github.com/axept/jss-from-css) to solve exactly this task.
 
-Lately we've found that sometimes it's just a very nice to define JSS styles in the format which we already used to.
+Lately we've found that it could be just very nice to define JSS styles in the format which we already used to.
 
-This package allows you to use with JSS any of your existed styles:
+So by default this package allows you to use PostCSS features and plugins. Those plugins allow you to use:
 
 + plain CSS
 + [SCSS](https://github.com/postcss/postcss-scss)
@@ -51,26 +49,26 @@ This package allows you to use with JSS any of your existed styles:
 + Stylus
 + SugarSS and so on
 
-It could help your to migrate "smoothly" from any format above to JSS.
+It could help your to migrate "smoothly" from any format above to JSS. That's how we solved this issue.
 
-Since we used PostCSS under hood - you can use any of PostCSS plugins like [Autoprefixer](https://github.com/postcss/autoprefixer), [postcss-next](http://cssnext.io/) and so on.
+You can use any of PostCSS plugins like [Autoprefixer](https://github.com/postcss/autoprefixer), [postcss-next](http://cssnext.io/) and so on.
 
 Also we [extended](#example) your CSS by allowing you to use JavaScript code in your styles. Just because it's a JSS way.
 
-Think about it like [PostCSS](https://github.com/postcss/postcss) + [Template Strings](https://developers.google.com/web/updates/2015/01/ES6-Template-Strings) + [JSS](https://github.com/jsstyles/jss) + ❤️ = **jss-from-postcss**. See example below.
+Think about it like [PostCSS](https://github.com/postcss/postcss) + [Template Strings](https://developers.google.com/web/updates/2015/01/ES6-Template-Strings) + [JSS](https://github.com/jsstyles/jss) + ❤️ = **PreJSS**. See example below.
 
 
 ## Installation
 
 ```bash
-npm install jss-from-postcss --save
+npm install prejss --save
 ```
 
 ## Example
 
 ```javascript
 import color from 'color'
-import fromPostCSS, { keyframes } from 'jss-from-postcss'
+import preJSS, { keyframes } from 'prejss'
 
 const rotate360 = keyframes`
   from {
@@ -82,7 +80,7 @@ const rotate360 = keyframes`
   }
 `
 
-const styles = fromPostCSS`
+const styles = preJSS`
   $bg-default: #ccc;
   
   button {
@@ -214,9 +212,9 @@ export default injectSheet(styles)(Buttons)
 
 ### Server-Side Rendering
 
-As you well know React.js and JSS both support Server-Side Rendering (SSR).
+As you well know, React.js and JSS are both support Server-Side Rendering (SSR).
 
-You can use it with `jss-from-postcss` without any limitations:
+You can use it with `prejss` without any limitations:
 
 ```javascript
 import express from 'express'
@@ -257,27 +255,42 @@ app.use('/', () => {
 app.listen(process.env['PORT'] || 3000)
 ```
 
+## Disabled JavaScript in Web Browser
+
+When you use [Server-Side Rendering](#server-side-rendering) it allows you to implement GET and POST fallbacks for all possible actions such as CRUD operations, so you can have Isomorphic Application without having JavaScript in Web Browser.
+
 ## Adapters
 
 Under hood [postcss-js](https://github.com/postcss/postcss-js) is using for parsing your styles to make it applicable for JSS.
 
-But you can create a custom adapter to override `prepare` and/or `parse` functions:
+It has been implmented as "class-to-function" adapter with lifecycle hooks. [You already know how it works](https://facebook.github.io/react/docs/react-component.html#the-component-lifecycle) if you know React.js or [Ember.js](https://guides.emberjs.com/v2.6.0/components/the-component-lifecycle/).
 
-+ `prepare(rawStyles: string): string` is using for converting your styles code to a CSS format, like [Middleware](http://redux.js.org/docs/advanced/Middleware.html)
+PreJSS Adapters covers `prepare`, `parse` and `finalize` steps. Default Adapter implements only `parse` step.
 
-+ `parse(CSS: string): object` is using for converting your CSS format to JSS, PostCSS do it here by default
-+ `finalize(result: object): object` is using for post-processing your final object
+You can create (and distribute!) your own adapter or customize existed one by overriding any of those steps:
+
++ `prepare(rawStyles: string): string`
+
+   This hook is using for pre-processing Styles Source to CSS format which is supporting by your parser, like [Redux middleware](http://redux.js.org/docs/advanced/Middleware.html). 
+
++ `parse(CSS: string): object`
+
+   The main hook which is using for converting your Styles to JSS Object. Default Adapter uses PostCSS for this operation.
+
++ `finalize(result: object): object`
+
+   This hook is using for post-processing your final object. Here you can convert your JSS Objects to React Native or [any other JSS library](https://github.com/hellofresh/css-in-js-perf-tests)
 
 Feel free to play with it:
 
 ```javascript
-import fromPostCSS, { createAdapter, keyframes } from 'jss-from-postcss'
+import preJSS, { createAdapter, defaultAdapter, keyframes } from 'prejss'
 
 const fromMixedCSS = createAdapter({
-  prepare: (rawStyles) => {
-    const prepared = rawStyles.replace(/^\s*\/\/.*$/gm, '') // remove JS comments
-    return fromPostCSS(prepared)
-  }
+  ...defaultAdapter,
+  prepare: rawStyles => defaultAdapter.prepare(
+    rawStyles.replace(/^\s*\/\/.*$/gm, '') // remove JS comments
+  ),
 })
 
 const rotate360 = keyframes`
@@ -321,14 +334,14 @@ It's not great idea to parse CSS in run-time on client-side. It's slow and expen
 
 Thee good news is that you don't have to do it! 🎉 There is a great [babel-plugin-prejss](https://github.com/axept/babel-plugin-prejss) plugin which transform your PostCSS styles from example above to JSS object in the processed scripts.
 
-[See how it works](https://github.com/lttb/babel-plugin-prejss#how-it-works)
++ [See how it works](https://github.com/lttb/babel-plugin-prejss#how-it-works)
 
 Step-by-Step manual:
 
 1. Add `babel-plugin-prejss` to your project:
 
    ```bash
-   npm install babel-plugin-prejss -D
+   npm install babel-plugin-prejss --save-dev
    ```
 
 2. Configure it by updating `.babelrc` in your project directory:
@@ -337,14 +350,58 @@ Step-by-Step manual:
    plugins: [
      [
        'prejss', {
-         'namespace': 'fromPostCSS'
+         'namespace': 'preJSS'
        }
      ]
    ]
    ```
    
-3. Build your project! In your JavaScript bundles you will have replaced `fromPostCSS` constraints by JSS objects directly. Babel do it for you. Not a magic - just a next generation JavaScript today. 😉
+3. Build your project! In your JavaScript bundles you will have replaced `preJSS` constraints by JSS objects directly. Babel do it for you. Not a magic - just a next generation JavaScript today. 😉
+
+## How Module Replacement with webpack
+
+You can get Hot Module Replacement by using webpack and PostJSS loader to get real-time updates while you work with the project.
+
++ [See how it works](https://github.com/lttb/postjss#hot-module-replacement)
+
+Step-by-Step manual:
+
+1. Add `postjss` to your project:
+
+   ```bash
+   npm install postjss --save
+   ```
+
+2. Configure your webpack to use it:
+
+   ```
+   {
+     test: tests.js,
+     use: [
+       'postjss/webpack/report-loader',
+       'babel-loader',
+       'postjss/webpack/hot-loader',
+     ],
+   },
+   ```
+
+## Linting
+
+Since we use PostCSS as default adapter - you can use [stylelint](https://github.com/stylelint/stylelint) for linting and [postcss-reporter](https://github.com/postcss/postcss-reporter) for warnings and errors.
+
+So it works with using [PostJSS](https://github.com/lttb/postjss#linting) like a charm:
+
+![Demo](https://cloud.githubusercontent.com/assets/11135392/23332827/1d705f20-fb91-11e6-8b13-146a65cf3ed5.gif)
 
 ## Inspiration
 
 + https://github.com/styled-components/styled-components
+
+## Thanks
+
+We would love to say huge thanks for helping us:
+
++ Oleg Slobodskoi aka [kof](https://github.com/kof)
++ Artur Kenzhaev aka [lttb](https://github.com/lttb/)
+
+[And you? 😉](https://github.com/axept/prejss/issues/new)
