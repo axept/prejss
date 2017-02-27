@@ -4,7 +4,7 @@ Fast, scoped, component-friendly and fully customizable PostCSS-to-JSS adapter. 
 
 > PostCSS is a tool for transforming styles with JS plugins. These plugins can lint your CSS, support variables and mixins, transpile future CSS syntax, inline images, and more.
 
-PreJSS allows you to use PostCSS, plain CSS, SCSS, CSS Modules, Stylus and LESS styles as JSS objects just "on-the-fly".
+PreJSS allows you to get JSS objects "on-the-fly" from plain CSS, PostCSS, SCSS, CSS Modules, Stylus and LESS styles.
 
 Beside of that, PreJSS is the shortest way to get high-optimized [Critical CSS](https://www.smashingmagazine.com/2015/08/understanding-critical-css/) for [Isomorphic Applications](https://www.slideshare.net/denisizmaylov/performance-and-scalability-art-of-isomorphic-react-applications) while it still fits good for Single Page Applications.
 
