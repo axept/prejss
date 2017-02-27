@@ -45,7 +45,7 @@ CSS is good enough solution when you develop web-sites and simple UIs.
 
 But when you develop Web Applications and complex UIs, CSS is something like legacy.
 
-Since 2015 we use React Native where [styles are defining by JavaScript objects](https://facebook.github.io/react-native/docs/style.html) and we found it extermely useful. 
+Since 2015 we use React Native where [styles are defined by JavaScript objects](https://facebook.github.io/react-native/docs/style.html) and we found it extremely useful. 
 
 But how to migrate from CSS/SCSS to JSS "smoothly and on-time"?
 
