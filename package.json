@@ -46,7 +46,6 @@
     "postcss": "^5.2.15",
     "postcss-js": "^0.3.0",
     "postcss-load-config": "^1.2.0",
-    "postcss-nested": "^1.0.0",
     "postcss-safe-parser": "^2.0.0",
     "postcss-simple-vars": "^3.0.0",
     "stylis": "^1.1.12"
@@ -68,6 +67,7 @@
     "flow": "^0.2.3",
     "flow-bin": "^0.39.0",
     "jest": "^19.0.2",
+    "postcss-extend": "^1.0.5",
     "postcss-nested": "^1.0.0",
     "rimraf": "^2.6.0"
   }
