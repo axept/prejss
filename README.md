@@ -8,7 +8,7 @@ Fast, scoped, component-friendly and fully customizable PostCSS-to-JSS adapter. 
 
 > PostCSS is a tool for transforming styles with JS plugins. These plugins can lint your CSS, support variables and mixins, transpile future CSS syntax, inline images, and more.
 
-PreJSS allows you to get [JSS objects](https://github.com/cssinjs/jss#example) "on-the-fly" from plain CSS, PostCSS, SCSS, CSS Modules, Stylus and LESS styles.
+PreJSS allows you to get [JSS objects](https://github.com/cssinjs/jss#example) "on-the-fly" from plain CSS, PostCSS, SCSS, CSS Modules, Stylus and LESS styles. Just put your CSS and get it as JSS.
 
 Beside of that, PreJSS is the shortest way to get high-optimized [Critical CSS](https://www.smashingmagazine.com/2015/08/understanding-critical-css/) for [Isomorphic Applications](https://www.slideshare.net/denisizmaylov/performance-and-scalability-art-of-isomorphic-react-applications) while it still fits good for Single Page Applications.
 
@@ -148,7 +148,7 @@ const styles = {
 
     '&:hover' {
       textDecoration: 'underline',
-      animation: rotate360 + ' 2s linear infinite'
+      animation: 'rotate360 2s linear infinite'
     }
   },
   
@@ -160,7 +160,7 @@ const styles = {
 
     '&:hover' {
       textDecoration: 'underline',
-      animation: rotate360 + ' 2s linear infinite',
+      animation: 'rotate360 2s linear infinite',
       background: color('blue').darken(0.3).hex()
     }
   },
@@ -279,7 +279,7 @@ app.listen(process.env['PORT'] || 3000)
 
 #### Performance Matters
 
-PostCSS parser is using by default in PreJSS. Since PostCSS is adopted for high performance - it uses async approach. To use it in sync way, PreJSS uses [deasync](https://github.com/abbr/deasync) for parsing CSS styles on the server. It has some costs - deasync blocks Event Loop so everything could be blocked until CSS parsing operation is processing.
+PostCSS parser is using by default in PreJSS. Since PostCSS is adopted for high performance - it uses async approach. How to get it as sync PreJSS Constraint? At the moment PreJSS uses [deasync](https://github.com/abbr/deasync) for parsing CSS styles on the server. It has some unpleasant costs - `deasync` blocks Event Loop so everything could be blocked until CSS parsing operation is processing.
 
 Everything will be OK if you use basic approach which has been described in [Example](#example). In this way `deasync` affects only total launch time for server application. Generally it's not critical when we compare it with DX (Developer Experience), useful usage.
 
@@ -308,7 +308,7 @@ app.use('/', () => {
 
 #### Async Adapters as Solution
 
-If you have wrapped PreJSS Constraints please use async [Adapter](#adapters) and async-await:
+If you have wrapped PreJSS Constraints please use Async [Adapter](#adapters) and async-await:
 
 ```javascript
 import preJSS, { preJSSAsync } from 'prejss'
@@ -333,11 +333,11 @@ app.use('/', async () => {
 
 It will totally solve deasync effect. 
 
-_If you don't have async-await (e.g. Node.js version lower than 7.6) it will [work as well as Promises](https://medium.com/@bluepnume/learn-about-promises-before-you-start-using-async-await-eb148164a9c8#.rholfri5v)._
+_Notice: If you don't have async-await (e.g. you have Node.js version lower than 7.6) it will [work as well as Promises](https://medium.com/@bluepnume/learn-about-promises-before-you-start-using-async-await-eb148164a9c8#.rholfri5v)._
 
 ## Disabled JavaScript in Web Browser
 
-When you use [Server-Side Rendering](#server-side-rendering) it allows you to implement GET and POST fallbacks for all possible actions such as CRUD operations, so you can have Isomorphic Application without having JavaScript in Web Browser.
+[Server-Side Rendering](#server-side-rendering) and Critical CSS both allows your users to see page even without JavaScript in Web Browsers. You could implement GET and POST fallbacks for all possible actions such as CRUD operations like Google did it.
 
 ## Adapters
 
