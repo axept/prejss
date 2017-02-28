@@ -1,4 +1,11 @@
 import createAdapter from './create-adapter'
-import defaultAdapter from './default-adapter'
+import createAdapterAsync from './create-async-adapter'
+import adapter, { asyncAdapter } from './postcss-adapter'
 
-export default createAdapter(defaultAdapter)
+const preJSS = createAdapter(adapter)
+const preJSSAsync = createAsyncAdapter(asyncAdapter)
+
+export preJSS
+export preJSSAsync
+
+export default preJSS

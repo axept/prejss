@@ -1,7 +1,13 @@
 /**
  * @see https://gist.github.com/muratgozel/e3ca2c08f74c9cb6eb7314e3088edb77#gistcomment-1802108
+ *
+ * At the moment PostCSS async parser is using.
+ *
+ * To get it as sync function deasync package has been used.
+ * Be careful! It blocks event loop. See more details in deasync README.
+ *
+ * @todo Find a way to do not use deasync
  */
-
 import postcss from 'postcss'
 import safeParse from 'postcss-safe-parser'
 import postcssJs from 'postcss-js'
@@ -24,17 +30,25 @@ try {
 
 const processor = postcss(config.plugins || [])
 const options = config.options || {}
+const finalOptions = { parser: safeParse, ...options }
 
-// TODO Find a way to do not use deasync for regular calls
 const processSync = deasync((raw, cb) => {
-  return processor.process(raw, { parser: safeParse, ...options })
+  return processor.process(raw, finalOptions)
     .then(res => cb(null, res))
     .catch(err => cb(err))
 })
 
+/**
+ * Parse specified Tagged Template Strings with CSS and expressions
+ *
+ * @param {String[]} chunks
+ * @returns {Object} JSS object
+ */
 export default (chunks, ...variables) => {
   let rawStyles
   let expressions = {}
+  
+  // Do we have expressions?
   if (chunks.length === 1) {
     rawStyles = chunks[0];
   } else {
