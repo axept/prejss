@@ -5,7 +5,6 @@ import postcss from 'postcss'
 import safeParse from 'postcss-safe-parser'
 import postcssJs from 'postcss-js'
 import postcssrc from 'postcss-load-config'
-import guid from '../utils/guid'
 
 let config
 let options
@@ -30,7 +29,7 @@ async function processParsing(rawStyles) {
     processor = postcss(config.plugins || [])
   }
 
-  return processor.process(raw, options)
+  return processor.process(rawStyles, options)
 } 
 
 /**
@@ -39,47 +38,13 @@ async function processParsing(rawStyles) {
  * @param {String[]} chunks
  * @returns {Object} JSS object
  */
-export default async (chunks, ...variables) => {
-  let rawStyles
-  let expressions = {}
-  
-  // Do we have expressions?
-  if (chunks.length === 1) {
-    rawStyles = chunks[0];
-  } else {
-    rawStyles = chunks.map((chunk, index) => {
-      const variable = variables[index]
-      if (typeof variable === 'function') {
-        const key = `$^var__${guid()}`
-        expressions[key] = variable
-        return chunk + key
-      } else if (typeof variable === 'string') {
-        return chunk + variable
-      } else {
-        return chunk
-      }
-    }, '').join('')
-  }
-
+export default async ({ rawStyles, ...args }) => {
   const processed = await processParsing(rawStyles)
   const objectCss = postcssJs.objectify(processed.root)
-
-  // Restore functions in style attributes
-  function restoreExpressions(target) {
-    return Object.keys(target).reduce((result, key) => {
-      const value = target[key];
-      if (Object.prototype.toString.call(value) === '[object Object]') {
-        result[key] = restoreExpressions(value)
-      } else if (expressions[value]){
-        result[key] = expressions[value]
-      } else {
-        result[key] = value
-      }
-      return result
-    }, {});
+  return {
+    objectCss,
+    ...args,
   }
-
-  return restoreExpressions(objectCss)
 }
 
 

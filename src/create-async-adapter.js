@@ -1,3 +1,5 @@
+import { plainSource } from './create-adapter'
+
 function isPromise(obj) {
   return (
     typeof obj === 'function' && typeof obj.then === 'function'
@@ -5,8 +7,8 @@ function isPromise(obj) {
 }
 
 export default function ({ prepare, parse, finalize }) {
-  return async function (rawStyles) {
-    const prepareResult = (typeof prepare === 'function') ? prepare(rawStyles) : rawStyles
+  return async function (...source) {
+    const prepareResult = (typeof prepare === 'function') ? prepare(...source) : plainSource(...source)
     let prepared
     if (isPromise(prepareResult)) {
       prepared = await prepareResult()
