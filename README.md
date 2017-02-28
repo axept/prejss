@@ -277,6 +277,64 @@ app.use('/', () => {
 app.listen(process.env['PORT'] || 3000)
 ```
 
+#### Performance Matters
+
+PostCSS parser is using by default in PreJSS. Since PostCSS is adopted for high performance - it uses async approach. To use it in sync way, PreJSS uses [deasync](https://github.com/abbr/deasync) for parsing CSS styles on the server. It has some costs - deasync blocks Event Loop so everything could be blocked until CSS parsing operation is processing.
+
+Everything will be OK if you use basic approach which has been described in [Example](#example). In this way `deasync` affects only total launch time for server application. Generally it's not critical when we compare it with DX (Developer Experience), useful usage.
+
+But if you wrap PreJSS Constraints to functions - it will cause the problem. Let's have a look:
+
+```javascript
+import preJSS from 'prejss'
+
+app.use('/', () => {
+
+  // At this point Event Loop will be blocked by deasync
+  // It means other requests will be "frozen" until CSS is processing
+
+  const customStyles = preJSS`
+    button {
+      color: green;
+      display: block;
+      margin: 0.5em 0;
+      font-family: Helvetica, Arial, sans-serif;
+    }
+  `
+
+  res.send(getCustomizedPage(customStyles))
+})
+```
+
+#### Async Adapters as Solution
+
+If you have wrapped PreJSS Constraints please use async [Adapter](#adapters) and async-await:
+
+```javascript
+import preJSS, { preJSSAsync } from 'prejss'
+
+app.use('/', async () => {
+
+  // At this point Event Loop will not be blocked 
+  // Other requests will be processing parallely while CSS is processing
+
+  const customStyles = await preJSSAsync`
+    button {
+      color: green;
+      display: block;
+      margin: 0.5em 0;
+      font-family: Helvetica, Arial, sans-serif;
+    }
+  `
+
+  res.send(getCustomizedPage(customStyles))
+})
+```
+
+It will totally solve deasync effect. 
+
+_If you don't have async-await (e.g. Node.js version lower than 7.6) it will [work as well as Promises](https://medium.com/@bluepnume/learn-about-promises-before-you-start-using-async-await-eb148164a9c8#.rholfri5v)._
+
 ## Disabled JavaScript in Web Browser
 
 When you use [Server-Side Rendering](#server-side-rendering) it allows you to implement GET and POST fallbacks for all possible actions such as CRUD operations, so you can have Isomorphic Application without having JavaScript in Web Browser.
