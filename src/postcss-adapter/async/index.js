@@ -10,6 +10,9 @@
  * - https://github.com/axept/prejss/issues/new
  */
 
+import prepare from '../common/prepare'
+import finalize from '../common/finalize'
+
 let parse
 
 if (typeof browser !== 'undefined') {
@@ -26,4 +29,4 @@ if (typeof browser !== 'undefined') {
   parse = require('./parse.server').default
 }
 
-export default { parse }
+export default { prepare, parse, finalize }
