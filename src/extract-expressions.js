@@ -1,6 +1,6 @@
-import guid from '../utils/guid'
+import guid from './utils/guid'
 
-export default function (chunks, ...variables) {
+export default (chunks, ...variables) => {
   let rawStyles
   let expressions = {}
 

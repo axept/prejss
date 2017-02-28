@@ -1,14 +1,15 @@
-import { plainSource } from './create-adapter'
+import extractExpressions from './extract-expressions'
+import restoreExpressions from './restore-expressions'
+import isPromise from './utils/is-promise'
 
-function isPromise(obj) {
-  return (
-    typeof obj === 'function' && typeof obj.then === 'function'
-  )
-}
+export default ({ prepare, parse, finalize, ...options }) => {
+  const extractFunc = options.extractExpressions || extractExpressions
+  const restoreFunc = options.restoreExpressions || restoreExpressions    
 
-export default function ({ prepare, parse, finalize }) {
-  return async function (...source) {
-    const prepareResult = (typeof prepare === 'function') ? prepare(...source) : plainSource(...source)
+  return async (chunks, ...variables) => {
+    const { rawStyles, expressions } = extractFunc(chunks, ...variables)
+    
+    const prepareResult = (typeof prepare === 'function') ? prepare(rawStyles) : rawStyles
     let prepared
     if (isPromise(prepareResult)) {
       prepared = await prepareResult()
@@ -25,7 +26,9 @@ export default function ({ prepare, parse, finalize }) {
       parsed = parseResult
     }
 
-    const finalizeResult = (typeof finalize === 'function') ? finalize(parsed) : parsed
+    const finalParsed = restoreExpressions(parsed, expressions)
+
+    const finalizeResult = (typeof finalize === 'function') ? finalize(finalParsed) : finalParsed
     let finalized
     if (isPromise(finalizeResult)) {
       finalized = await finalizeResult()

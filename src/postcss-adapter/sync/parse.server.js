@@ -13,7 +13,6 @@ import safeParse from 'postcss-safe-parser'
 import postcssJs from 'postcss-js'
 import postcssrc from 'postcss-load-config'
 import deasync from 'deasync'
-import guid from '../utils/guid'
 
 const postcssrcSync = deasync(cb => {
   postcssrc()
@@ -41,15 +40,12 @@ const processSync = deasync((raw, cb) => {
 /**
  * Parse specified Tagged Template Strings with CSS and expressions
  *
- * @param {String[]} chunks
+ * @param {String} 
  * @returns {Object} JSS object
  */
-export default ({ rawStyles, ...args }) => {
-  const objectCss = postcssJs.objectify(processSync(rawStyles).root)
-  return {
-    objectCss,
-    ...args,
-  }
+export default (rawStyles) => {
+  const processed = processSync(rawStyles)
+  return postcssJs.objectify(processed.root)
 }
 
 

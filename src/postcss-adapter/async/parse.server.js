@@ -11,13 +11,15 @@ let options
 let processor
 
 /**
- * 1. Initiate config, options and processor variables in module scope, if they are not initiated yet
+ * 1. Initiate config, options and processor variables in module scope,
+ *    if they are not initiated yet
+ *
  * 2. Process parsing with initiated options
  * 
  * @param {String} rawStyles
  * @returns {Object} JSS Object
  */
-async function processParsing(rawStyles) {
+const processParsing = async (rawStyles) => {
   if (!config) {
     config = await postcssrc()
 
@@ -35,16 +37,12 @@ async function processParsing(rawStyles) {
 /**
  * Parse specified Tagged Template Strings with CSS and expressions
  *
- * @param {String[]} chunks
+ * @param {String}
  * @returns {Object} JSS object
  */
-export default async ({ rawStyles, ...args }) => {
+export default async (rawStyles) => {
   const processed = await processParsing(rawStyles)
-  const objectCss = postcssJs.objectify(processed.root)
-  return {
-    objectCss,
-    ...args,
-  }
+  return postcssJs.objectify(processed.root)
 }
 
 

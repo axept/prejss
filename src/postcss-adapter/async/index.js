@@ -10,16 +10,14 @@
  * - https://github.com/axept/prejss/issues/new
  */
 
-import prepare from '../common/prepare'
-import finalize from '../common/finalize'
-
 let parse
 
 if (typeof browser !== 'undefined') {
   
   parse = function () {
     throw new Error(
-      'PreJSS fatal: Sorry, at the moment Web Browser is not supporting out of the box. Please use babel-plugin-prejss instead.'
+      'PreJSS fatal: Sorry, at the moment Web Browser is not supporting' +
+      ' out of the box. Please use babel-plugin-prejss instead.'
     )
   }
 
@@ -29,4 +27,4 @@ if (typeof browser !== 'undefined') {
   parse = require('./parse.server').default
 }
 
-export default { prepare, parse, finalize }
+export default { parse }
