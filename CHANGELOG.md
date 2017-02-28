@@ -6,14 +6,21 @@ All notable changes to this project will be documented in this file. If a contri
 
 ## [Upcoming Major Release]
 
--
+- Explore unreleased changes [here](https://github.com/axept/prejss-private/commits/master)
 
-## [Unreleased]
+## [v1.1.0] - 2016-02-18
+
+Introduced Async Adapters! 🎉
 
 ### Added
 
-- 
+- Added API support for Async Adapters by [createAsyncAdapter()](https://github.com/axept/prejss/blob/v1.0.3/src/create-adapter.js)
+- Added Async API for built-in PostCSS adapter
 
 ### Changed
 
-- 
+- Updated README, explore changes history [here](https://github.com/axept/prejss/commits/master/README.md)
+- Refactored directory structure - separated adapter for core structure
+- A lot of minor changes
+
+[v1.1.0]: https://github.com/axept/prejss/compare/v1.0.3...v1.1.0
