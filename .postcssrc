@@ -1,3 +1,6 @@
 {
-  "postcss-nested": {}
+  "plugins": {
+    "postcss-nested": {},
+    "postcss-extend": {}
+  }
 }

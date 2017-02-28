@@ -351,15 +351,15 @@ You can create (and distribute!) your own adapter or customize existed one by ov
 
 + `prepare(rawStyles: string): string`
 
-   This hook is using for pre-processing Styles Source to CSS format which is supporting by your parser, like [Redux middleware](http://redux.js.org/docs/advanced/Middleware.html). 
+   This hook is using for creating custom pre-processing CSS. It calls before `parse()` and looks like [Redux middleware](http://redux.js.org/docs/advanced/Middleware.html). For example, you can strip JavaScript comments or execute embedded JavaScript code. See example below.
 
 + `parse(CSS: string): object`
 
-   The main hook which is using for converting your Styles to JSS Object. Default Adapter uses PostCSS for this operation.
+   The main hook which is using for converting CSS to JSS Object. Default Adapter uses PostCSS Processor for this operation.
 
 + `finalize(result: object): object`
 
-   This hook is using for post-processing your final object. Here you can convert your JSS Objects to React Native or [any other JSS library](https://github.com/hellofresh/css-in-js-perf-tests)
+   This hook is using for post-processing your final object. Here you can convert your JSS Objects to React Native or [any other JSS library](https://github.com/hellofresh/css-in-js-perf-tests).
 
 Feel free to play with it:
 
