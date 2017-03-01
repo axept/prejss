@@ -32,9 +32,10 @@ Supports:
 
 + [Motivation](#motivation)
 + [Installation](#installation)
++ [Getting Started](#getting-started)
 + [Example](#example)
 + [Adapters](#adapters)
-+ [Precompilation](#precompilation)
++ [Pre-compilation](#pre-compilation)
 + [Ecosystem](#ecosystem)
 + [Inspiration](#inspiration)
 + [Thanks](#thanks)
@@ -76,6 +77,15 @@ Finally, think about it like:
 ```bash
 npm install prejss --save
 ```
+
+## Getting Started
+
+To get started using PreJSS in your applications, it would be great to know three things:
+
++ [Declarations](#example) for styles which are processing by PreJSS
++ [Adapters](#adapters) which processes preparation, parsing and finalization operations for styles (see details below)
+
+The best way to get started right now is to take a look at how these three parts come together to example below.
 
 ## Example
 
@@ -400,15 +410,13 @@ const getStyles = ({ color, animationSpeed, className }) => fromMixedCSS`
 `
 ```
 
-## Precompilation
+## Pre-compilation
 
-It's not great idea to parse CSS in run-time on client-side. It's slow and expensive operations.
+It's not great idea to parse CSS in run-time on client-side. It's slow and expensive operations. Additonaly it requires to include PostCSS (or any other parsers) to JavaScript bundle. 
 
-The good news is that you don't have to do it! 🎉 Really.
+The good news is that we don't have to do it! 🎉 Really.
 
-There is great [babel-plugin-prejss](https://github.com/axept/babel-plugin-prejss) plugin which transform your CSS styles from example above to JSS object in the final scripts.
-
-+ [See how it works](https://github.com/lttb/babel-plugin-prejss#how-it-works)
+There is great [babel-plugin-prejss](https://github.com/axept/babel-plugin-prejss) plugin which transforms PreJSS Constraints CSS styles example above to JSS object in the final scripts.
 
 Step-by-Step manual:
 
