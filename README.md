@@ -31,8 +31,8 @@ Supports:
 ## Content
 
 + [Motivation](#motivation)
-+ [Installation](#installation)
 + [Getting Started](#getting-started)
++ [Installation](#installation)
 + [Example](#example)
 + [Adapters](#adapters)
 + [Pre-compilation](#pre-compilation)
@@ -72,20 +72,23 @@ Finally, think about it like:
 + [PostCSS](https://github.com/postcss/postcss) + [Template Strings](https://developers.google.com/web/updates/2015/01/ES6-Template-Strings) + [JSS](https://github.com/jsstyles/jss) + ❤️ = **PreJSS**
 
 
+## Getting Started
+
+To get started using PreJSS in your applications, it would be great to know three things:
+
++ [PreJSS Declaration](#example) for styles which is processing by PreJSS. In other words, CSS Code with Expressions as Tagged Template String which is converting to string and using as input for Adapters.
+
++ [Adapter](#adapters) is core thing in PreJSS. This function do all work which you can customize in any point: prepare CSS, parse CSS to [JSS](http://cssinjs.org/json-api/), finalize returned JSS when we have to adopt it for other platforms (Aphrodite, React Native, etc). There is two kinds of Adapters - sync and async (for performant SSR).
+
++ Parser is pure function which process prepared JSS to valid JSS. By default (as built-in) PostCSS is using for this goal.
+
+The best way to get started right now is to take a look at how these three parts come together to example below.
+
 ## Installation
 
 ```bash
 npm install prejss --save
 ```
-
-## Getting Started
-
-To get started using PreJSS in your applications, it would be great to know three things:
-
-+ [Declarations](#example) for styles which are processing by PreJSS
-+ [Adapters](#adapters) which processes preparation, parsing and finalization operations for styles (see details below)
-
-The best way to get started right now is to take a look at how these three parts come together to example below.
 
 ## Example
 
