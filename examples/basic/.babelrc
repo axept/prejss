@@ -5,9 +5,7 @@
     "stage-0"
   ],
   "plugins": [
-    ["../../src/babel/index.js", {
-      "namespace": "prejss"
-    }],
+    ["transform-prejss"],
     ["module-alias", [
       { "src": "../../src/index", "expose": "prejss" }
     ]]

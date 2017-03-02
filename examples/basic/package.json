@@ -36,7 +36,6 @@
   },
   "postcss": {
     "plugins": {
-      "postcss-nested": {},
       "postcss-simple-vars": {}
     }
   },
@@ -48,6 +47,7 @@
     "babel-preset-react": "^6.23.0",
     "babel-preset-stage-0": "^6.22.0",
     "babel-register": "^6.23.0",
+    "babel-plugin-transform-prejss": "github:axept/babel-plugin-transform-prejss",
     "express": "^4.14.1",
     "jss": "^6.3.0",
     "nodemon": "^1.11.0",

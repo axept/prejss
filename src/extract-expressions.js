@@ -19,7 +19,7 @@ export default (chunks, ...variables) => {
       } else {
         return chunk
       }
-    }, '').join('')
+    }).join('')
   }
 
   return { rawStyles, expressions }
