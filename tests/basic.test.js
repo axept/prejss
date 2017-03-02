@@ -7,7 +7,7 @@ it('plain css parsed to object', () => {
 
   const style = ({ main }) => fromPostCSS`
     button {
-      width: 100px;
+      width: ${nike => '100px'};
       height: 100px;
       background: ${main}
     }

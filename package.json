@@ -41,6 +41,7 @@
   },
   "homepage": "https://github.com/axept/prejss",
   "dependencies": {
+    "babel-types": "^6.23.0",
     "css": "^2.2.1",
     "deasync": "^0.1.9",
     "postcss": "^5.2.15",
