@@ -1,6 +1,6 @@
 # PreJSS 🎨
 
-[![Travis branch](https://img.shields.io/travis/axept/prejss/master.svg?style=flat-square)]()
+[![Travis branch](https://img.shields.io/travis/axept/prejss/master.svg?style=flat-square)](https://www.npmjs.com/package/prejss)
 [![npm version](https://img.shields.io/npm/v/prejss.svg?style=flat-square)](https://www.npmjs.com/package/prejss)
 [![npm downloads](https://img.shields.io/npm/dt/prejss.svg?style=flat-square)](https://www.npmjs.com/package/prejss)
 [![npm license](https://img.shields.io/npm/l/prejss.svg?style=flat-square)](https://www.npmjs.com/package/prejss)
