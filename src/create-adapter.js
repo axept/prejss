@@ -11,7 +11,7 @@ export default ({ prepare, parse, finalize, ...options }) => {
     const prepared = (typeof prepare === 'function') ? prepare(rawStyles) : rawStyles
     const parsed = parse(prepared) // throw error if parse() is not defined properly
     
-    const finalParsed = restoreExpressions(parsed, expressions)
+    const finalParsed = restoreFunc(parsed, expressions)
 
     return (typeof finalize === 'function') ? finalize(finalParsed) : finalParsed
   }

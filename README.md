@@ -31,10 +31,11 @@ Supports:
 ## Content
 
 + [Motivation](#motivation)
++ [Getting Started](#getting-started)
 + [Installation](#installation)
 + [Example](#example)
 + [Adapters](#adapters)
-+ [Precompilation](#precompilation)
++ [Pre-compilation](#pre-compilation)
 + [Ecosystem](#ecosystem)
 + [Inspiration](#inspiration)
 + [Thanks](#thanks)
@@ -70,6 +71,18 @@ Finally, think about it like:
 
 + [PostCSS](https://github.com/postcss/postcss) + [Template Strings](https://developers.google.com/web/updates/2015/01/ES6-Template-Strings) + [JSS](https://github.com/jsstyles/jss) + ❤️ = **PreJSS**
 
+
+## Getting Started
+
+To get started using PreJSS in your applications, it would be great to know three things:
+
++ [PreJSS Declaration](#example) for styles which is processing by PreJSS. In other words, CSS Code with Expressions as Tagged Template String which is converting to string and using as input for Adapters.
+
++ [Adapter](#adapters) is core thing in PreJSS. This function do all work which you can customize in any point: prepare CSS, parse CSS to [JSS](http://cssinjs.org/json-api/), finalize returned JSS when we have to adopt it for other platforms (Aphrodite, React Native, etc). There is two kinds of Adapters - sync and async (for performant SSR).
+
++ Parser is pure function which process prepared JSS to valid JSS. By default (as built-in) PostCSS is using for this goal.
+
+The best way to get started right now is to take a look at how these three parts come together to example below.
 
 ## Installation
 
@@ -308,7 +321,7 @@ app.use('/', () => {
 
 #### Async Adapters as Solution
 
-If you have wrapped PreJSS Constraints please use Async [Adapter](#adapters) and async-await:
+If you have wrapped PreJSS Constraints please use async [Adapter](#adapters) and async-await:
 
 ```javascript
 import preJSS, { preJSSAsync } from 'prejss'
@@ -341,13 +354,15 @@ _Notice: If you don't have async-await (e.g. you have Node.js version lower than
 
 ## Adapters
 
-Under hood [postcss-js](https://github.com/postcss/postcss-js) is using for parsing your styles to make it applicable for JSS.
+Under hood [postcss-js](https://github.com/postcss/postcss-js) is using for parsing CSS styles to make it applicable for JSS.
 
-It has been implmented as "class-to-function" adapter with lifecycle hooks. [You already know how it works](https://facebook.github.io/react/docs/react-component.html#the-component-lifecycle) if you know React.js or [Ember.js](https://guides.emberjs.com/v2.6.0/components/the-component-lifecycle/).
+What does it mean "Adapters" in PreJSS? It looks like as "class-to-function" adapter with lifecycle hooks. [You already know this concept](https://facebook.github.io/react/docs/react-component.html#the-component-lifecycle) if you learned React.js or [Ember.js](https://guides.emberjs.com/v2.6.0/components/the-component-lifecycle/).
 
-PreJSS Adapters covers `prepare`, `parse` and `finalize` steps. Default Adapter implements only `parse` step.
+PreJSS Adapters covers `prepare`, `parse` and `finalize` steps.
 
-You can create (and distribute!) your own adapter or customize existed one by overriding any of those steps:
+Default (built-in) Adapter implements only `parse` step.
+
+You can create (and distribute!) your own adapters or customize existed one by overriding any of those steps:
 
 + `prepare(rawStyles: string): string`
 
@@ -373,16 +388,6 @@ const fromMixedCSS = createAdapter({
   ),
 })
 
-const rotate360 = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-  
-  to {
-    transform: rotate(360deg);
-  }
-`
-
 const getStyles = ({ color, animationSpeed, className }) => fromMixedCSS`
   ${'button' + (className ? '.' + className : '')}
     color: ${() => color || 'palevioletred'};
@@ -393,7 +398,7 @@ const getStyles = ({ color, animationSpeed, className }) => fromMixedCSS`
     // Let's rotate the board!
     &:hover {
       text-decoration: underline;
-      animation: ${rotate360} ${animationSpeed || '2s'} linear infinite;
+      animation: rotate360 ${animationSpeed || '2s'} linear infinite;
     }
   }
   
@@ -408,13 +413,13 @@ const getStyles = ({ color, animationSpeed, className }) => fromMixedCSS`
 `
 ```
 
-## Precompilation
+## Pre-compilation
 
-It's not great idea to parse CSS in run-time on client-side. It's slow and expensive.
+It's not great idea to parse CSS in run-time on client-side. It's slow and expensive operations. Additonaly it requires to include PostCSS (or any other parsers) to JavaScript bundle. 
 
-Thee good news is that you don't have to do it! 🎉 There is a great [babel-plugin-prejss](https://github.com/axept/babel-plugin-prejss) plugin which transform your PostCSS styles from example above to JSS object in the processed scripts.
+The good news is that we don't have to do it! 🎉 Really.
 
-+ [See how it works](https://github.com/lttb/babel-plugin-prejss#how-it-works)
+There is great [babel-plugin-prejss](https://github.com/axept/babel-plugin-prejss) plugin which transforms PreJSS Constraints CSS styles example above to JSS object in the final scripts.
 
 Step-by-Step manual:
 

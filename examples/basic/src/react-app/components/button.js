@@ -1,8 +1,8 @@
 import React from 'react'
 import injectSheet from 'react-jss'
-import fromPostCSS from '../../../src/index';
+import prejss from 'prejss'
 
-const styles = ({selector}) => fromPostCSS`
+const styles = ({selector}) => prejss`
   ${selector} {
     font: 400 18px/1.4 Roboto, Helvetica, Arial, sans-serif;
     display: inline-block;

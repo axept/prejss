@@ -1,22 +1,30 @@
-import fromPostCSS from '../src/index';
+import preJSS from '../src/index';
 
-it('plain css parsed to object', () => {
+it('plain CSS parsed to object', () => {
   const colors = {
     main: 'red',
   }
+  const widht = wide => wide ? '100px' : '50px'
 
-  const style = ({ main }) => fromPostCSS`
+  const style = ({ main }) => preJSS`
     button {
-      width: 100px;
+      width: ${widht};
       height: 100px;
-      background: ${main}
+      background: ${main};
+      &:hover {
+        color: black;
+      }
     }
   `
+  
   expect(style(colors)).toEqual({
     button: {
-      width: '100px',
+      width: widht,
       height: '100px',
       background: 'red',
+      '&:hover': {
+        color: 'black',
+      }
     }
   })
 })

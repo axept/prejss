@@ -1,13 +1,13 @@
 import React from 'react'
-import Express from 'express'
+import express from 'express'
 import { renderToString } from 'react-dom/server'
 import { SheetsRegistryProvider, SheetsRegistry } from 'react-jss'
-import App from './app'
+import App from '../react-app/app'
 
 const port = process.env['PORT'] || 5000
-const app = new Express()
+const app = new express()
 
-
+app.use(express.static('dist'))
 app.get('/*', (req, res) => {
   const sheets = new SheetsRegistry()
   const renderElements = renderToString(
@@ -25,6 +25,7 @@ app.get('/*', (req, res) => {
       </head>
       <body>
         <div id="root">${renderElements}</div>
+        <script type="text/javascript" src="app.js"></script>
       </body>
   </html>`
   res.status(200).send(html)

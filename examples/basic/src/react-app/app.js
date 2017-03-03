@@ -1,17 +1,16 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, Component } from 'react'
 import injectSheet from 'react-jss'
-import Button from './components/button';
+import Button from './components/button'
+import prejss from 'prejss'
 
-import fromPostCSS from '../../src/index'
-
-const styles = fromPostCSS`
+const styles = (classname) => prejss`
   $bg-default: #ccc;
   @global {
     body {
       color: $bg-default;
     }
-    button {
-      color: #888888;
+    ${classname} {
+      color: ${color => color};
     }
   }
 `
