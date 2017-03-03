@@ -79,9 +79,9 @@ To get started using PreJSS in your applications, it would be great to know thre
 
 + [PreJSS Declaration](#example) for styles which is processing by PreJSS. In other words, CSS Code with Expressions as Tagged Template String which is converting to string and using as input for Adapters.
 
-+ [Adapter](#adapters) is core thing in PreJSS. This function do all work which you can customize in any point: prepare CSS, parse CSS to [JSS](http://cssinjs.org/json-api/), finalize returned JSS when we have to adopt it for other platforms (Aphrodite, React Native, etc). There is two kinds of Adapters - sync and async (for performant SSR).
++ Parser is package with pure functions which are using by adapters for parsing prepared CSS to valid JSS object. Parser can be sync (by default) and async. See [prejss-postcss-parser](https://github.com/axept/prejss-postcss-parser) which is using by default (built-in).
 
-+ Parser is pure function which process prepared JSS to valid JSS. By default (as built-in) PostCSS is using for this goal.
++ [Adapter](#adapters) is core thing in PreJSS. This function do all work which you can customize at any point: prepare CSS, parse CSS to [JSS](http://cssinjs.org/json-api/), finalize JSS when we have to adopt it to other CSS-in-JS platforms (Aphrodite, React Native, etc). There is two kinds of Adapters - sync and async (for performant SSR).
 
 The best way to get started right now is to take a look at how these three parts come together to example below.
 
