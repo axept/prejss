@@ -8,7 +8,7 @@
     "build:lib": "babel src --out-dir lib",
     "lint": "eslint src",
     "flow": "flow check src",
-    "check": "npm run flow && npm run lint",
+    "check": "npm run flow",
     "test": "jest",
     "build": "npm run clean && npm run build:lib",
     "prepublish": "npm run clean && npm run build"
