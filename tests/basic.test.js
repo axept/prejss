@@ -1,13 +1,12 @@
-import prejss from '../src/index';
+import preJSS from '../src/index';
 
-it('plain css parsed to object', () => {
+it('plain CSS parsed to object', () => {
   const colors = {
     main: 'red',
   }
+  const widht = wide => wide ? '100px' : '50px'
 
-  const widht = wide => wide ? '100px' : '50px';
-
-  const style = ({ main }) => prejss`
+  const style = ({ main }) => preJSS`
     button {
       width: ${widht};
       height: 100px;
@@ -17,6 +16,7 @@ it('plain css parsed to object', () => {
       }
     }
   `
+  
   expect(style(colors)).toEqual({
     button: {
       width: widht,
