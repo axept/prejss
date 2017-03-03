@@ -26,7 +26,7 @@ export default ({ prepare, parse, finalize, ...options }) => {
       parsed = parseResult
     }
 
-    const finalParsed = restoreExpressions(parsed, expressions)
+    const finalParsed = restoreFunc(parsed, expressions)
 
     const finalizeResult = (typeof finalize === 'function') ? finalize(finalParsed) : finalParsed
     let finalized
