@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+  - 7
+script:
+  - npm version
+  - npm run check
+  - npm run test
+  - npm run build
+branches:
+  only:
+    - master
+notifications:
+  email:
+    on_failure: change
+cache:
+  directories:
+    - $HOME/.npm
+    - node_modules

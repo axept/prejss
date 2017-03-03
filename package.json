@@ -6,11 +6,12 @@
   "scripts": {
     "clean": "rimraf lib dist",
     "build:lib": "babel src --out-dir lib",
-    "build": "npm run clean && npm run build:lib",
-    "lint": "./node_modules/.bin/eslint src/",
-    "flow": "flow check src/",
+    "lint": "eslint src",
+    "flow": "flow check src",
+    "check": "npm run flow && npm run lint",
     "test": "jest",
-    "prepublish": "npm run build"
+    "build": "npm run clean && npm run build:lib",
+    "prepublish": "npm run clean && npm run build"
   },
   "repository": {
     "type": "git",
