@@ -10,7 +10,7 @@
     "flow": "flow check src",
     "check": "npm run flow",
     "test": "jest",
-    "build": "npm run clean && npm run build:lib",
+    "build": "npm run build:lib",
     "prepublish": "npm run clean && npm run build"
   },
   "repository": {
