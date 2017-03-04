@@ -77,11 +77,11 @@ Finally, think about it like:
 
 To get started using PreJSS in your applications, it would be great to know three things:
 
-+ [PreJSS Declaration](#example) for styles which is processing by PreJSS. In other words, CSS Code with Expressions as Tagged Template String which is converting to string and using as input for Adapters.
++ [PreJSS Styles Declaration](#example) is top-level definition which is processing by PreJSS. In other words, CSS Code with Expressions as Tagged Template String which is converting to string and using as input for Parser in Adapters.
 
-+ Parser is package with pure functions which are using by adapters for parsing prepared CSS to valid JSS object. Parser can be sync (by default) and async. See [prejss-postcss-parser](https://github.com/axept/prejss-postcss-parser) which is using by default (built-in).
++ [Parser](#parsers) is core thing in PreJSS. Usually it's a package with pure function which is using by Adapters. PreJSS Parser can be sync (by default) and async. PreJSS uses [prejss-postcss-parser](https://github.com/axept/prejss-postcss-parser) by default (as built-in).
 
-+ [Adapter](#adapters) is core thing in PreJSS. This function do all work which you can customize at any point: prepare CSS, parse CSS to [JSS](http://cssinjs.org/json-api/), finalize JSS when we have to adopt it to other CSS-in-JS platforms (Aphrodite, React Native, etc). There is two kinds of Adapters - sync and async (for performant SSR).
++ [Adapters](#adapters) is core thing and the point for customization your PreJSS. PreJSS Adapter is pure function which handle Tagged Template String, prepare specified CSS, parse it to [JSS](http://cssinjs.org/json-api/) and finalize JSS when we have to adopt it to other CSS-in-JS platforms (Aphrodite, React Native, etc). There is two kinds of Adapters - sync for basic usage and async – for [improving performance of Server-Side Rendering](#performance-matters).
 
 The best way to get started right now is to take a look at how these three parts come together to example below.
 
@@ -319,7 +319,7 @@ app.use('/', () => {
   res.send(getCustomizedPage(customStyles))
 })
 ```
-
+perom
 #### Async Adapters as Solution
 
 If you have wrapped PreJSS Constraints please use async [Adapter](#adapters) and async-await:
@@ -353,15 +353,28 @@ _Notice: If you don't have async-await (e.g. you have Node.js version lower than
 
 [Server-Side Rendering](#server-side-rendering) and Critical CSS both allows your users to see page even without JavaScript in Web Browsers. You could implement GET and POST fallbacks for all possible actions such as CRUD operations like Google did it.
 
+## Parsers
+
+There is two kind of parsers - sync and async. For both cases it's a pure function:
+
++ `(preparedCSS: string): object`
++ `(preparedCSS: string): Promise`
+
+By default [prejss-postcss-parser](https://github.com/axept/prejss-postcss-parser) is using by default. This parser uses [postcss-js](https://github.com/postcss/postcss-js) under hood and supports PostCSS config and plugins.
+
+Feel free to create and distribute your own parser. It should have package name in the following format:
+
++ `prejss-<PARSER_NAME>-parser`
+
 ## Adapters
 
-Under hood [postcss-js](https://github.com/postcss/postcss-js) is using for parsing CSS styles to make it applicable for JSS.
+What does it mean "Adapters" in PreJSS?
 
-What does it mean "Adapters" in PreJSS? It looks like as "class-to-function" adapter with lifecycle hooks. [You already know this concept](https://facebook.github.io/react/docs/react-component.html#the-component-lifecycle) if you learned React.js or [Ember.js](https://guides.emberjs.com/v2.6.0/components/the-component-lifecycle/).
+It looks like as "class-to-function" adapter with lifecycle hooks. [You already know this concept](https://facebook.github.io/react/docs/react-component.html#the-component-lifecycle) if you learned React.js or [Ember.js](https://guides.emberjs.com/v2.6.0/components/the-component-lifecycle/).
 
 PreJSS Adapters covers `prepare`, `parse` and `finalize` steps.
 
-Default (built-in) Adapter implements only `parse` step.
+Default (built-in) adapters implements only `parse` step so you can customize it as you want.
 
 You can create (and distribute!) your own adapters or customize existed one by overriding any of those steps:
 
