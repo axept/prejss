@@ -1,7 +1,7 @@
 {
   "name": "jss-from-postcss-basic-example",
   "version": "0.1.0",
-  "description": "Example of transform scss styles to jss and render with SSR React.",
+  "description": "Example of transforming SCSS styles to JSS and render them using React SSR",
   "main": "index.js",
   "scripts": {
     "clean": "rm -rf dist",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/axept/jss-from-postcss.git"
+    "url": "git+https://github.com/axept/prejss.git"
   },
   "keywords": [
     "css",
@@ -21,8 +21,7 @@
     "jss",
     "styled-components",
     "stylesheets",
-    "jss-from-css",
-    "jss-from-postcss",
+    "prejss",
     "scss",
     "sass",
     "less",
@@ -32,7 +31,7 @@
   "author": "Axept <office@axept.co>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/axept/jss-from-postcss/issues"
+    "url": "https://github.com/axept/prejss/issues"
   },
   "postcss": {
     "plugins": {
@@ -47,7 +46,7 @@
     "babel-preset-react": "^6.23.0",
     "babel-preset-stage-0": "^6.22.0",
     "babel-register": "^6.23.0",
-    "babel-plugin-transform-prejss": "github:axept/babel-plugin-transform-prejss",
+    "babel-plugin-transform-prejss": "^0.3.1",
     "express": "^4.14.1",
     "jss": "^6.3.0",
     "nodemon": "^1.11.0",
