@@ -5,7 +5,7 @@
 [![npm downloads](https://img.shields.io/npm/dt/prejss.svg?style=flat-square)](https://www.npmjs.com/package/prejss)
 [![npm license](https://img.shields.io/npm/l/prejss.svg?style=flat-square)](https://www.npmjs.com/package/prejss)
 
-Fast, scoped, component-friendly and fully customizable PostCSS-to-JSS adapter. Use the best bits of [PostCSS](https://github.com/postcss/postcss), syntax and plugins ([one](https://github.com/postcss/postcss#plugins), [two](http://postcss.parts/), [three](https://github.com/jjaderg/awesome-postcss#plugins)) to get that all as [JSS](https://github.com/cssinjs/jss) objects from [Tagged Template literals](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Template_literals) (a recent addition to JavaScript/ES6).
+Fast, component-friendly, fully customizable and universal СSS-to-JSS adapter. Use the best bits of [PostCSS](https://github.com/postcss/postcss), syntax and plugins ([one](https://github.com/postcss/postcss#plugins), [two](http://postcss.parts/), [three](https://github.com/jjaderg/awesome-postcss#plugins)) to get that all as [JSS](https://github.com/cssinjs/jss) objects from [Tagged Template literals](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Template_literals) (a recent addition to JavaScript/ES6).
 
 > PostCSS is a tool for transforming styles with JS plugins. These plugins can lint your CSS, support variables and mixins, transpile future CSS syntax, inline images, and more.
 
@@ -25,6 +25,7 @@ Supports:
 + [Fast Run-time execution by Babel plugin](#precompilation)
 + [Hot Module Replacement with webpack](#hot-module-replacement-with-webpack)
 + [Linting](#linting)
++ [CLI tool for converting](https://github.com/axept/prejss-cli)
 + Syntax Highlighting ([WIP](https://github.com/axept/prejss/issues/12))
 
 ![Diagram](https://raw.githubusercontent.com/axept/prejss/master/docs/prejss-schema.png)
