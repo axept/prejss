@@ -495,7 +495,12 @@ So it works with using [PostJSS](https://github.com/lttb/postjss#linting) like a
 
 ## Ecosystem
 
-+ [babel-plugin-prejss](https://github.com/lttb/babel-plugin-prejss) - plugin for Babel for pre-compiliation PreJSS constraints to JSS Objects
++ [babel-plugin-transform-prejss](https://github.com/axept/babel-plugin-transform-prejss) - Turn PreJSS construction into JSS objects
+
++ [babel-plugin-prejss](https://github.com/lttb/babel-plugin-prejss) - Plugin for Babel for pre-compiliation PreJSS constraints to JSS Objects
+
++ [prejss-styles-loader](https://github.com/lttb/prejss-styles-loader) - Styles loader for PreJSS and Webpack
+
 + [postjss](https://github.com/lttb/postjss) - loader for webpack to put Hot Module Replacement feature to your work process
 
 ## Inspiration
