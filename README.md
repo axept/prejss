@@ -495,6 +495,8 @@ So it works with using [PostJSS](https://github.com/lttb/postjss#linting) like a
 
 ## Ecosystem
 
++ [prejss-cli](https://github.com/axept/prejss-cli) - get ES6 modules with JSS styles from CSS/SCSS/LESS styles or CSS frameworks
+
 + [babel-plugin-transform-prejss](https://github.com/axept/babel-plugin-transform-prejss) - Turn PreJSS construction into JSS objects
 
 + [babel-plugin-prejss](https://github.com/lttb/babel-plugin-prejss) - Plugin for Babel for pre-compiliation PreJSS constraints to JSS Objects
