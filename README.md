@@ -7,6 +7,8 @@
 
 Fast, component-friendly, fully customizable and universal СSS-to-JSS adapter. Use the best bits of [PostCSS](https://github.com/postcss/postcss), syntax and plugins ([one](https://github.com/postcss/postcss#plugins), [two](http://postcss.parts/), [three](https://github.com/jjaderg/awesome-postcss#plugins)) to get that all as [JSS](https://github.com/cssinjs/jss) objects from [Tagged Template literals](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Template_literals) (a recent addition to JavaScript/ES6).
 
+![Architecture](https://raw.githubusercontent.com/axept/prejss/master/docs/architecture.png)
+
 > PostCSS is a tool for transforming styles with JS plugins. These plugins can lint your CSS, support variables and mixins, transpile future CSS syntax, inline images, and more.
 
 PreJSS allows you to get [JSS objects](https://github.com/cssinjs/jss#example) "on-the-fly" from plain CSS, PostCSS, SCSS, CSS Modules, Stylus and LESS styles. Just put your CSS and get it as JSS.
@@ -515,5 +517,6 @@ We would love to say huge thanks for helping us:
 
 + Oleg Slobodskoi aka [kof](https://github.com/kof)
 + Artur Kenzhaev aka [lttb](https://github.com/lttb/)
++ Andrey Kholmanyuk aka [hlomzik](https://github.com/hlomzik)
 
 [And you? 😉](https://github.com/axept/prejss/issues/new)
