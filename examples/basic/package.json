@@ -1,5 +1,5 @@
 {
-  "name": "jss-from-postcss-basic-example",
+  "name": "prejss-basic-example",
   "version": "0.1.0",
   "description": "Example of transforming SCSS styles to JSS and render them using React SSR",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "clean": "rm -rf dist",
     "build": "npm run clean && webpack --config ./webpack.config.babel.js",
     "server": "SERVER=true nodemon ./src/server/index.js --watch",
-    "start": "npm run build && npm run server"
+    "start": "npm run server"
   },
   "repository": {
     "type": "git",
