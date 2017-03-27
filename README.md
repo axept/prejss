@@ -5,7 +5,7 @@
 [![npm downloads](https://img.shields.io/npm/dt/prejss.svg?style=flat-square)](https://www.npmjs.com/package/prejss)
 [![npm license](https://img.shields.io/npm/l/prejss.svg?style=flat-square)](https://www.npmjs.com/package/prejss)
 
-Fast, component-friendly, fully customizable and universal СSS-to-JSS adapter. Use the best bits of [PostCSS](https://github.com/postcss/postcss), syntax and plugins ([one](https://github.com/postcss/postcss#plugins), [two](http://postcss.parts/), [three](https://github.com/jjaderg/awesome-postcss#plugins)) to get that all as [JSS](https://github.com/cssinjs/jss) objects from [Tagged Template literals](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Template_literals) (a recent addition to JavaScript/ES6).
+Fast, component-friendly, fully customizable, universal СSS-to-JSS adapter. Use the best bits of [PostCSS](https://github.com/postcss/postcss), syntax and plugins ([1](https://github.com/postcss/postcss#plugins), [2](http://postcss.parts/), [3](https://github.com/jjaderg/awesome-postcss#plugins)) to get result as [JSS](https://github.com/cssinjs/jss) objects from [Tagged Template literals](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Template_literals) (a recent addition to JavaScript/ES6).
 
 ![Architecture](https://raw.githubusercontent.com/axept/prejss/master/docs/architecture.png)
 
