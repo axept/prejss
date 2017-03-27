@@ -517,5 +517,6 @@ We would love to say huge thanks for helping us:
 
 + Oleg Slobodskoi aka [kof](https://github.com/kof)
 + Artur Kenzhaev aka [lttb](https://github.com/lttb/)
++ Andrey Kholmanyuk aka [hlomzik](https://github.com/hlomzik)
 
 [And you? 😉](https://github.com/axept/prejss/issues/new)
