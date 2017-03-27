@@ -17,6 +17,8 @@ Beside of that, PreJSS is the shortest way to get high-optimized [Critical CSS](
 
 Are you new to JSS? It will save your time, improve your productivity and reduce cognitive loading by allowing you to use CSS and [JSS notation](https://top.fse.guru/jss-is-css-d7d41400b635#.72jbezmkj) together. It means sometimes you can write CSS, sometimes - JSS. That all according to your choice.
 
++ See [PreJSS Example Application](https://github.com/axept/prejss-example-app) with using React.js, isomorphic architecture, Server-Side Rendering (SSR), Hot Module Replacement (HMR), JSS and PreJSS 🎨 with run-time and pre-compilation 
+
 Supports:
 
 + [React.js for Web](#example)
