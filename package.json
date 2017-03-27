@@ -1,6 +1,6 @@
 {
   "name": "prejss",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Get the power of PostCSS with plugins in your JSS styles. 🎨 Just put CSS into JS and get it as JSS object.",
   "main": "lib/index.js",
   "scripts": {
