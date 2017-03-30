@@ -1,9 +1,21 @@
 {
-  "presets": [
-    "es2015",
-    "stage-0"
-  ],
   "plugins": [
-    "transform-flow-strip-types"
+    "transform-flow-strip-types",
+    "transform-es2015-template-literals",
+    "transform-es2015-literals",
+    "transform-es2015-arrow-functions",
+    "transform-es2015-shorthand-properties",
+    "check-es2015-constants",
+    ["transform-es2015-spread", {
+      "loose": true
+    }],
+    "transform-es2015-parameters",
+    "transform-es2015-destructuring",
+    ["transform-es2015-block-scoping", {
+      "throwIfClosureRequired": true
+    }],
+    "transform-async-to-generator",
+    ["transform-object-rest-spread", { "useBuiltIns": true }],
+    "transform-es2015-modules-commonjs"
   ]
 }
