@@ -489,6 +489,18 @@ Step-by-Step manual:
    },
    ```
 
+## Syntax Highlighting
+
+Now preJSS doesn't have plugin for support syntax highlighting in JetBrains IDEs,
+but we can use [Language Injections](https://www.jetbrains.com/help/webstorm/2016.2/using-language-injections.html).
+It is simple!
+
+First ensure postcss plugin is installed! We should add `//language=PostCSS` before our code injection. Example:
+
+![Diagram](https://cloud.githubusercontent.com/assets/16529522/24467048/02403882-14c4-11e7-808d-3f222f74d1e1.png)
+
+
+
 ## Linting
 
 Since we use PostCSS as default adapter - you can use [stylelint](https://github.com/stylelint/stylelint) for linting and [postcss-reporter](https://github.com/postcss/postcss-reporter) for warnings and errors.
