@@ -495,7 +495,9 @@ Until JetBrains IDEs doesn't have plugin for support preJSS syntax highlighting
 we can use [Language Injections](https://www.jetbrains.com/help/phpstorm/2016.3/using-language-injections.html).
 It is simple!
 
-First ensure postcss plugin is installed! We should add `//language=PostCSS` before our code injection. Example:
+First ensure postcss plugin is installed! We should add `//language=PostCSS` before our code injection.
+
+Example:
 
 ![Diagram](https://raw.githubusercontent.com/BrRenat/prejss/idea-highlighting/docs/idea-highlight.png)
 
