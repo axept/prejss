@@ -17,7 +17,7 @@ Beside of that, PreJSS is the shortest way to get high-optimized [Critical CSS](
 
 Are you new to JSS? It will save your time, improve your productivity and reduce cognitive loading by allowing you to use CSS and [JSS notation](https://top.fse.guru/jss-is-css-d7d41400b635#.72jbezmkj) together. It means sometimes you can write CSS, sometimes - JSS. That all according to your choice.
 
-+ See [PreJSS Example Application](https://github.com/axept/prejss-example-app) with using React.js, isomorphic architecture, Server-Side Rendering (SSR), Hot Module Replacement (HMR), JSS and PreJSS 🎨 with run-time and pre-compilation 
++ See [PreJSS Example Application](https://github.com/axept/prejss-example-app) with using React.js, isomorphic architecture, Server-Side Rendering (SSR), Hot Module Replacement (HMR), JSS and PreJSS 🎨 with run-time and pre-compilation
 
 Supports:
 
@@ -52,7 +52,7 @@ CSS is good enough solution when you develop web-sites and simple UIs.
 
 But when you develop Web Applications and complex UIs, CSS is something like legacy.
 
-Since 2015 we use React Native where [styles are defined by JavaScript objects](https://facebook.github.io/react-native/docs/style.html) and we found it extremely useful. 
+Since 2015 we use React Native where [styles are defined by JavaScript objects](https://facebook.github.io/react-native/docs/style.html) and we found it extremely useful.
 
 But how to migrate from CSS/SCSS to JSS "smoothly and on-time"?
 
@@ -67,7 +67,7 @@ So out-of-the-box PreJSS allows you to use PostCSS features and plugins which en
 + SASS
 + LESS
 + Stylus
-+ SugarSS 
++ SugarSS
 
 It could help your to migrate "smoothly" from any format above to JSS. That's how we solved this issue.
 
@@ -104,7 +104,7 @@ import preJSS from 'prejss'
 
 const styles = preJSS`
   $bg-default: #ccc;
-  
+
   button {
     color: ${props => props.isPrimary ? 'palevioletred' : 'green'};
     display: block;
@@ -116,15 +116,15 @@ const styles = preJSS`
       animation: ${rotate360} 2s linear infinite;
     }
   }
-  
+
   ctaButton {
     @include button;
-    
+
     &:hover {
       background: ${color('blue').darken(0.3).hex()}
     }
   }
-  
+
   @media (min-width: 1024px) {
     button {
       width: 200px;
@@ -170,7 +170,7 @@ const styles = {
       animation: 'rotate360 2s linear infinite'
     }
   },
-  
+
   ctaButton: {
     color: () => 'palevioletred',
     display: 'block',
@@ -183,7 +183,7 @@ const styles = {
       background: color('blue').darken(0.3).hex()
     }
   },
-  
+
   '@media (min-width: 1024px)': {
     button: {
       width: 200,
@@ -198,7 +198,7 @@ const styles = {
       transform: 'rotate(360deg)'
     }
   },
-  
+
   '@global': {
     body: {
       color: '#ccc'
@@ -265,7 +265,7 @@ import React from 'react'
 import { renderToString } from 'react-dom/server'
 import { SheetsRegistryProvider, SheetsRegistry } from 'react-jss'
 // this module is defined in the previous example
-import Buttons from './buttons' 
+import Buttons from './buttons'
 
 // One time setup with default plugins and settings.
 jss.setup(preset())
@@ -334,7 +334,7 @@ import preJSS, { preJSSAsync } from 'prejss'
 
 app.use('/', async () => {
 
-  // At this point Event Loop will not be blocked 
+  // At this point Event Loop will not be blocked
   // Other requests will be processing parallely while CSS is processing
 
   const customStyles = await preJSSAsync`
@@ -350,7 +350,7 @@ app.use('/', async () => {
 })
 ```
 
-It will totally solve deasync effect. 
+It will totally solve deasync effect.
 
 _Notice: If you don't have async-await (e.g. you have Node.js version lower than 7.6) it will [work as well as Promises](https://medium.com/@bluepnume/learn-about-promises-before-you-start-using-async-await-eb148164a9c8#.rholfri5v)._
 
@@ -413,18 +413,18 @@ const getStyles = ({ color, animationSpeed, className }) => fromMixedCSS`
     display: block;
     margin: 0.5em 0;
     font-family: Helvetica, Arial, sans-serif;
-    
+
     // Let's rotate the board!
     &:hover {
       text-decoration: underline;
       animation: rotate360 ${animationSpeed || '2s'} linear infinite;
     }
   }
-  
+
   // Special styles for Call-to-Action button
   ctaButton {
     @include button;
-    
+
     &:hover {
       background: ${color('blue').darken(0.3).hex()}
     }
@@ -434,7 +434,7 @@ const getStyles = ({ color, animationSpeed, className }) => fromMixedCSS`
 
 ## Pre-compilation
 
-It's not great idea to parse CSS in run-time on client-side. It's slow and expensive operations. Additonaly it requires to include PostCSS (or any other parsers) to JavaScript bundle. 
+It's not great idea to parse CSS in run-time on client-side. It's slow and expensive operations. Additonaly it requires to include PostCSS (or any other parsers) to JavaScript bundle.
 
 The good news is that we don't have to do it! 🎉 Really.
 
@@ -459,7 +459,7 @@ Step-by-Step manual:
      ]
    ]
    ```
-   
+
 3. Build your project! In your JavaScript bundles you will have replaced `preJSS` constraints by JSS objects directly. Babel do it for you. Not a magic - just a next generation JavaScript today. 😉
 
 ## Hot Module Replacement with webpack
@@ -491,13 +491,13 @@ Step-by-Step manual:
 
 ## Syntax Highlighting
 
-Now preJSS doesn't have plugin for support syntax highlighting in JetBrains IDEs,
-but we can use [Language Injections](https://www.jetbrains.com/help/webstorm/2016.2/using-language-injections.html).
+Until JetBrains IDEs doesn't have plugin for support preJSS syntax highlighting
+we can use [Language Injections](https://www.jetbrains.com/help/phpstorm/2016.3/using-language-injections.html).
 It is simple!
 
 First ensure postcss plugin is installed! We should add `//language=PostCSS` before our code injection. Example:
 
-![Diagram](https://cloud.githubusercontent.com/assets/16529522/24467048/02403882-14c4-11e7-808d-3f222f74d1e1.png)
+![Diagram](https://raw.githubusercontent.com/BrRenat/prejss/idea-highlighting/docs/idea-highlight.png)
 
 
 
