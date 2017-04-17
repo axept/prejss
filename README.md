@@ -438,14 +438,14 @@ It's not great idea to parse CSS in run-time on client-side. It's slow and expen
 
 The good news is that we don't have to do it! 🎉 Really.
 
-There is great [babel-plugin-prejss](https://github.com/axept/babel-plugin-prejss) plugin which transforms PreJSS Constraints CSS styles example above to JSS object in the final scripts.
+There is great [babel-plugin-transform-prejss](https://github.com/axept/babel-plugin-transform-prejss) plugin which transforms PreJSS Constraints CSS styles example above to JSS object in the final scripts.
 
 Step-by-Step manual:
 
-1. Add `babel-plugin-prejss` to your project:
+1. Add `babel-plugin-transform-prejss` to your project:
 
    ```bash
-   npm install babel-plugin-prejss --save-dev
+   npm install babel-plugin-transform-prejss --save-dev
    ```
 
 2. Configure it by updating `.babelrc` in your project directory:
@@ -516,8 +516,6 @@ So it works with using [PostJSS](https://github.com/lttb/postjss#linting) like a
 + [prejss-cli](https://github.com/axept/prejss-cli) - get ES6 modules with JSS styles from CSS/SCSS/LESS styles or CSS frameworks
 
 + [babel-plugin-transform-prejss](https://github.com/axept/babel-plugin-transform-prejss) - Turn PreJSS construction into JSS objects
-
-+ [babel-plugin-prejss](https://github.com/lttb/babel-plugin-prejss) - Plugin for Babel for pre-compiliation PreJSS constraints to JSS Objects
 
 + [prejss-styles-loader](https://github.com/lttb/prejss-styles-loader) - Styles loader for PreJSS and Webpack
 
